@@ -215,6 +215,72 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Social Proof / Testimonials */}
+      <section className={styles.section}>
+        <div className="container">
+          <h2 className={`${styles.sectionTitle} ${styles.textCenter}`}>超過 5,000+ 創業家與工作者正在使用</h2>
+          <p className={`${styles.sectionSubtitle} ${styles.textCenter} ${styles.mbExtra}`}>
+            他們透過 Optimaks 省下了無數個在螢幕前發呆的時間
+          </p>
+          <div className={styles.testimonialGrid}>
+            <div className={styles.testimonialCard}>
+              <div className={styles.testimonialStars}>★★★★★</div>
+              <p className={styles.testimonialText}>「以前寫廣告文案要憋一個下午，現在用『廣告文案怎麼寫？』技能包，10分鐘就能產出三種角度的吸睛文案，ROAS 提升了 20%！」</p>
+              <div className={styles.testimonialAuthor}>
+                <div className={styles.authorAvatar}>S</div>
+                <div>
+                  <div className={styles.authorName}>Sarah L.</div>
+                  <div className={styles.authorTitle}>獨立電商負責人</div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.testimonialCard}>
+              <div className={styles.testimonialStars}>★★★★★</div>
+              <p className={styles.testimonialText}>「身為產品經理，最怕需求定義不清。使用『問題釐清』技能包後，我把老闆模糊的指令直接丟進去，AI 幫我反向生出了完整的規格提問清單，太神了。」</p>
+              <div className={styles.testimonialAuthor}>
+                <div className={styles.authorAvatar}>K</div>
+                <div>
+                  <div className={styles.authorName}>Kevin T.</div>
+                  <div className={styles.authorTitle}>資深產品經理</div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.testimonialCard}>
+              <div className={styles.testimonialStars}>★★★★★</div>
+              <p className={styles.testimonialText}>「以前覺得自己買了好多商業書但都不會用。Optimaks 直接把書中的框架變成 Prompt，只要填空就能得出分析結果，根本是知識變現的神器。」</p>
+              <div className={styles.testimonialAuthor}>
+                <div className={styles.authorAvatar}>M</div>
+                <div>
+                  <div className={styles.authorName}>Michael C.</div>
+                  <div className={styles.authorTitle}>個人品牌創作者</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className={`${styles.section} ${styles.bgSubtle}`}>
+        <div className="container">
+          <h2 className={`${styles.sectionTitle} ${styles.textCenter} ${styles.mbExtra}`}>常見問題 (FAQ)</h2>
+          <div className={styles.faqList}>
+            <div className={styles.faqItem}>
+              <h4 className={styles.faqQuestion}>Q: 這些技能包可以在哪些 AI 平台上使用？</h4>
+              <p className={styles.faqAnswer}>A: 我們的技能包經過優化，在 ChatGPT、Claude、Gemini 等主流 AI 平台上都能完美運行。您只需要複製貼上即可。</p>
+            </div>
+            <div className={styles.faqItem}>
+              <h4 className={styles.faqQuestion}>Q: 購買後可以永久使用嗎？</h4>
+              <p className={styles.faqAnswer}>A: 是的，一次購買，永久存取。我們未來若對該技能包進行升級（例如加入新框架或優化 Prompt），您也能免費獲得更新。</p>
+            </div>
+            <div className={styles.faqItem}>
+              <h4 className={styles.faqQuestion}>Q: 我不懂寫程式或下 Prompt 可以用嗎？</h4>
+              <p className={styles.faqAnswer}>A: 完全可以！這正是我們開發 Optimaks 的初衷。您只需要進入「我的圖書館」，使用我們的「智能填空器」，填寫您目前的狀況，系統就會自動幫您組合成完美的 Prompt。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Testimonials (Placeholder CTA) */}
       <section className={styles.sectionCta}>
         <div className="container">

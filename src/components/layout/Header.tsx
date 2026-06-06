@@ -3,6 +3,7 @@ import styles from './Header.module.css';
 import { createClient } from '@/utils/supabase/server';
 import { signout } from '@/app/login/actions';
 import CartIcon from './CartIcon';
+import UserMenu from './UserMenu';
 
 export default async function Header() {
   const supabase = await createClient();
@@ -23,12 +24,7 @@ export default async function Header() {
         <div className={styles.actions}>
           <CartIcon />
           {user ? (
-            <>
-              <Link href="/library" className={styles.loginBtn}>我的圖書館</Link>
-              <form action={signout}>
-                <button className={styles.loginBtn} style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '0.9rem' }}>登出</button>
-              </form>
-            </>
+            <UserMenu email={user.email || ''} />
           ) : (
             <>
               <Link href="/login" className={styles.loginBtn}>登入</Link>
