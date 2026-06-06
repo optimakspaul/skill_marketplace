@@ -162,19 +162,19 @@ export async function masterBypassCheckout(formData: FormData) {
   const { createClient: createSupabaseClient } = await import('@supabase/supabase-js')
   const supabaseAdmin = createSupabaseClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.SUPABASE_SERVICE_ROLE_KEY! // 強制要求使用 Service Role Key
   )
 
   const records = idsToInsert.map(id => ({
     user_id: user.id,
     product_id: id,
-    stripe_session_id: 'master_bypass_' + Date.now()
+    stripe_session_id: `master_bypass_${Date.now()}_${id}`
   }))
 
   const { error } = await supabaseAdmin.from('purchases').insert(records)
   if (error) {
     console.error('Master bypass error:', error)
-    throw new Error('Failed to insert purchases')
+    throw new Error('Failed to insert purchases: ' + error.message)
   }
 
   redirect('/library?success=true&clearCart=true')

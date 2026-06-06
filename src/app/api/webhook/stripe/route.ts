@@ -68,7 +68,7 @@ export async function POST(req: Request) {
         const records = idsToInsert.map(id => ({
           user_id: userId,
           product_id: id,
-          stripe_session_id: session.id,
+          stripe_session_id: `${session.id}_${id}`,
         }))
 
         const { error } = await supabaseAdmin

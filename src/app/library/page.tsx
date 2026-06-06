@@ -1,8 +1,10 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import styles from './page.module.css'
 import { skillPacks } from '@/lib/seed'
+import ClearCartHelper from '@/components/ui/ClearCartHelper'
 
 export default async function LibraryPage() {
   const supabase = await createClient()
@@ -24,6 +26,9 @@ export default async function LibraryPage() {
 
   return (
     <div className={styles.page}>
+      <Suspense fallback={null}>
+        <ClearCartHelper />
+      </Suspense>
       <div className="container">
         <div className={styles.header}>
           <h1 className={styles.title}>我的圖書館 (My Library)</h1>
