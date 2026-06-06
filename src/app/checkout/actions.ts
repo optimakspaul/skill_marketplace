@@ -131,3 +131,51 @@ export async function createCartCheckoutSession(formData: FormData) {
     throw new Error('Failed to create Stripe Checkout session')
   }
 }
+
+export async function masterBypassCheckout(formData: FormData) {
+  const productIdsString = formData.get('productIds') as string
+  if (!productIdsString) {
+    throw new Error('No products provided')
+  }
+
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user || user.email !== 'kokotsai@gmail.com') {
+    throw new Error('Unauthorized')
+  }
+
+  const rawIds = productIdsString.split(',')
+  let idsToInsert: string[] = []
+
+  for (const id of rawIds) {
+    const bundle = bundles.find(b => b.id === id)
+    if (bundle) {
+      idsToInsert.push(...bundle.packIds)
+    } else {
+      idsToInsert.push(id)
+    }
+  }
+
+  idsToInsert = Array.from(new Set(idsToInsert))
+
+  const { createClient: createSupabaseClient } = await import('@supabase/supabase-js')
+  const supabaseAdmin = createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
+  const records = idsToInsert.map(id => ({
+    user_id: user.id,
+    product_id: id,
+    stripe_session_id: 'master_bypass_' + Date.now()
+  }))
+
+  const { error } = await supabaseAdmin.from('purchases').insert(records)
+  if (error) {
+    console.error('Master bypass error:', error)
+    throw new Error('Failed to insert purchases')
+  }
+
+  redirect('/library?success=true&clearCart=true')
+}

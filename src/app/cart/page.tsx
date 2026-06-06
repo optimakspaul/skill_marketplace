@@ -3,10 +3,24 @@
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import styles from './page.module.css';
-import { createCartCheckoutSession } from '../checkout/actions';
+import { createCartCheckoutSession, masterBypassCheckout } from '../checkout/actions';
+import { createClient } from '@/utils/supabase/client';
+import { useEffect, useState } from 'react';
 
 export default function CartPage() {
   const { cart, removeFromCart, totalPrice, rawTotalPrice, discount } = useCart();
+  const [isMaster, setIsMaster] = useState(false);
+
+  useEffect(() => {
+    const checkMaster = async () => {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user && user.email === 'kokotsai@gmail.com') {
+        setIsMaster(true);
+      }
+    };
+    checkMaster();
+  }, []);
 
   if (cart.length === 0) {
     return (
@@ -70,7 +84,7 @@ export default function CartPage() {
             </div>
             {discount > 0 && (
               <div className={styles.summaryRow}>
-                <span>組合包自動折扣 (任選5件)</span>
+                <span>組合包自動折扣</span>
                 <span className={styles.textGreen}>-${discount.toFixed(1)}</span>
               </div>
             )}
@@ -83,6 +97,16 @@ export default function CartPage() {
               <input type="hidden" name="productIds" value={productIds} />
               <button type="submit" className={styles.btnCheckout}>前往結帳</button>
             </form>
+
+            {isMaster && (
+              <form action={masterBypassCheckout} style={{ width: '100%', marginTop: '0.75rem' }}>
+                <input type="hidden" name="productIds" value={productIds} />
+                <button type="submit" className={styles.btnCheckout} style={{ background: '#f59e0b', borderColor: '#f59e0b', color: 'white' }}>
+                  👑 Master 直接開通 (免付費)
+                </button>
+              </form>
+            )}
+
             <div className={styles.secureNote}>🔒 安全付款 / 數位商品即時交付</div>
           </div>
         </div>
