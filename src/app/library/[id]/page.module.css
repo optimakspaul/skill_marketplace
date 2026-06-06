@@ -118,6 +118,10 @@
   background: var(--primary-hover);
 }
 
+.btnCopy.copied {
+  background: #10b981;
+}
+
 .viewerContainer {
   padding: 3rem;
   max-width: 900px;
@@ -158,6 +162,93 @@
   font-size: 0.95rem;
   line-height: 1.6;
   white-space: pre-wrap;
+}
+
+/* PromptBox specific styles */
+.promptBoxWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.variablesPanel {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.variablesTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.variablesSubtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.variablesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.variableInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.variableLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.variableInput {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.variableInput:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.1);
+}
+
+.articleContent {
+  line-height: 1.8;
+  color: var(--text-main);
+  font-size: 1.05rem;
+}
+
+.articleContent h3 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.articleContent li {
+  margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.articleContent strong {
+  color: #0f172a;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
