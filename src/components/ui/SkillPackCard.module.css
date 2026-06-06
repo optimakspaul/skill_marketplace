@@ -99,8 +99,10 @@
 
 .footerTop {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .price {

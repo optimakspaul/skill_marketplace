@@ -71,14 +71,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.75rem; /* Increased for bigger touch target */
   text-decoration: none;
   cursor: pointer;
   margin-right: 0.5rem;
 }
 
 .cartIcon {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Was 1.5rem */
 }
 
 .cartBadge {
@@ -87,14 +87,15 @@
   right: 0;
   background-color: #ef4444;
   color: white;
-  font-size: 0.7rem;
+  font-size: 0.85rem; /* Was 0.7rem */
   font-weight: bold;
   border-radius: 50%;
-  width: 18px;
-  height: 18px;
+  width: 22px; /* Was 18px */
+  height: 22px; /* Was 18px */
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translate(25%, -25%);
 }
 
 /* Mobile Responsiveness */
