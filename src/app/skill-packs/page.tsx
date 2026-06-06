@@ -29,6 +29,14 @@ export default function MarketplacePage() {
     return matchesCategory && matchesSearch;
   });
 
+  const groupedPacks = categories.slice(2).reduce((acc, cat) => {
+    const packs = filteredPacks.filter(p => p.category === cat);
+    if (packs.length > 0) {
+      acc.push({ category: cat, packs });
+    }
+    return acc;
+  }, [] as { category: string, packs: typeof skillPacks }[]);
+
   return (
     <div className={styles.page}>
       {/* Hero Header */}
@@ -68,16 +76,26 @@ export default function MarketplacePage() {
         <div className={styles.content}>
           <div className={styles.contentHeader}>
             <span className={styles.resultCount}>共 {filteredPacks.length} 個技能包</span>
-            <div className={styles.sortContainer}>
-               {/* 移除複雜的排序下拉，保持畫面乾淨 */}
-            </div>
           </div>
           
-          <div className={styles.grid}>
-            {filteredPacks.map(pack => (
-              <SkillPackCard key={pack.id} pack={pack} />
-            ))}
-          </div>
+          {groupedPacks.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)' }}>
+              找不到符合的技能包
+            </div>
+          ) : (
+            groupedPacks.map(group => (
+              <div key={group.category} className={styles.categorySection}>
+                <h2 className={styles.categoryTitle}>{group.category}支線</h2>
+                <div className={styles.grid}>
+                  {group.packs.map(pack => (
+                    <div key={pack.id} className={styles.cardWrapper}>
+                      <SkillPackCard pack={pack} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
