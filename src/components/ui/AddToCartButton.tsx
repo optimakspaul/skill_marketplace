@@ -1,6 +1,7 @@
 'use client';
 
 import { useCart } from '@/context/CartContext';
+import Link from 'next/link';
 
 interface Props {
   pack: any;
@@ -9,8 +10,22 @@ interface Props {
 }
 
 export default function AddToCartButton({ pack, className, style }: Props) {
-  const { cart, addToCart, removeFromCart } = useCart();
+  const { cart, addToCart, removeFromCart, purchasedPackIds } = useCart();
+  
+  const isPurchased = purchasedPackIds?.includes(pack.id);
   const isInCart = cart.some(item => item.id === pack.id);
+
+  if (isPurchased) {
+    return (
+      <Link 
+        href={`/library`}
+        className={className} 
+        style={{ ...style, background: '#4b5563', borderColor: '#4b5563', color: 'white', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
+      >
+        📚 已擁有
+      </Link>
+    );
+  }
 
   if (isInCart) {
     return (

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { createClient } from '@/utils/supabase/client';
 
 interface CartContextType {
   cart: any[];
@@ -10,6 +11,7 @@ interface CartContextType {
   totalPrice: number;
   rawTotalPrice: number;
   discount: number;
+  purchasedPackIds: string[];
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -17,8 +19,9 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<any[]>([]);
   const [isMounted, setIsMounted] = useState(false);
+  const [purchasedPackIds, setPurchasedPackIds] = useState<string[]>([]);
 
-  // Load from localStorage on mount
+  // Load from localStorage and fetch purchases on mount
   useEffect(() => {
     setIsMounted(true);
     const savedCart = localStorage.getItem('optimaks_cart');
@@ -29,6 +32,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         console.error('Failed to parse cart from localStorage', e);
       }
     }
+
+    const fetchPurchases = async () => {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data } = await supabase.from('purchases').select('product_id').eq('user_id', user.id);
+        if (data) {
+          setPurchasedPackIds(data.map(p => p.product_id));
+        }
+      }
+    };
+    fetchPurchases();
   }, []);
 
   // Listen for cart changes to save to localStorage
@@ -101,7 +116,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const totalPrice = rawTotalPrice - discount;
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, totalPrice, discount, rawTotalPrice }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, totalPrice, discount, rawTotalPrice, purchasedPackIds }}>
       {children}
     </CartContext.Provider>
   );
