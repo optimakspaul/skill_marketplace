@@ -96,3 +96,50 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 15px;
+    gap: 10px;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    gap: 1rem;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar for a cleaner look */
+    scrollbar-width: none; 
+  }
+  
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navLink {
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    gap: 0.8rem;
+  }
+
+  .buyBtn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .loginBtn {
+    font-size: 0.9rem;
+  }
+}
