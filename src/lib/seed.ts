@@ -21,7 +21,7 @@ export interface SkillPack {
   sections?: Section[];
 }
 
-export const skillPacks: SkillPack[] = [
+const rawSkillPacks: SkillPack[] = [
   // 1. 問題解決支線
   {
     id: "sp-01",
@@ -223,6 +223,26 @@ export const skillPacks: SkillPack[] = [
     category: "財經專用",
   }
 ];
+
+const defaultSections: Section[] = [
+  {
+    id: "intro",
+    title: "📖 使用教學 (準備中)",
+    type: "article",
+    content: "### 內容建置中\n\n這個技能包的專屬教學內容與真實 Prompt 正在由專家精心籌備中！\n\n在 MVP 測試階段，您可以先體驗我們為 **「問題釐清 (sp-01)」** 與 **「商品怎麼賣才吸引人 (sp-05)」** 準備的完整範例功能。"
+  },
+  {
+    id: "prompt",
+    title: "📋 Master Prompt (體驗版)",
+    type: "prompt",
+    content: "這是一個通用的智能填空器體驗版。\n\n我的主要問題是：[請輸入您的問題]\n我希望達成的目標是：[請輸入預期目標]\n\n請根據以上資訊，用條理分明的方式給我建議。"
+  }
+];
+
+export const skillPacks: SkillPack[] = rawSkillPacks.map(pack => ({
+  ...pack,
+  sections: pack.sections || defaultSections
+}));
 
 export interface Bundle {
   id: string;
