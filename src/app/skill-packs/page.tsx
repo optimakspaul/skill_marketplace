@@ -1,8 +1,34 @@
-import { skillPacks, bundles } from '@/lib/seed';
+'use client';
+
+import { useState } from 'react';
+import { skillPacks } from '@/lib/seed';
 import SkillPackCard from '@/components/ui/SkillPackCard';
 import styles from './page.module.css';
 
 export default function MarketplacePage() {
+  const [selectedCategory, setSelectedCategory] = useState<string>('全部');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const categories = ['全部', '熱門推薦', '問題解決', '電商專用', '小老闆專用', '財經專用'];
+
+  const filteredPacks = skillPacks.filter(pack => {
+    // Category Filter
+    let matchesCategory = false;
+    if (selectedCategory === '全部') matchesCategory = true;
+    else if (selectedCategory === '熱門推薦') matchesCategory = pack.isHot === true;
+    else matchesCategory = pack.category === selectedCategory;
+
+    // Search Filter
+    let matchesSearch = true;
+    if (searchQuery.trim() !== '') {
+      const q = searchQuery.toLowerCase();
+      matchesSearch = 
+        pack.title.toLowerCase().includes(q) || 
+        pack.description.toLowerCase().includes(q);
+    }
+
+    return matchesCategory && matchesSearch;
+  });
+
   return (
     <div className={styles.page}>
       {/* Hero Header */}
@@ -10,139 +36,50 @@ export default function MarketplacePage() {
         <div className="container">
           <h1 className={styles.heroTitle}>探索所有的技能包</h1>
           <p className={styles.heroSubtitle}>
-            從問題釐清、營收成長、SOP、AI 導入到職涯升級，找到最適合你的 AI 顧問型技能工具。<br />
+            從問題解決、電商營運、管理流程到財經研究，找到最適合你的 AI 顧問型技能工具。<br />
             適用 ChatGPT / Claude / Gemini，跨語言使用，可交叉組合。
           </p>
           <div className={styles.searchContainer}>
-            <input type="text" placeholder="🔍 搜尋技能包..." className={styles.searchInput} />
+            <input 
+              type="text" 
+              placeholder="🔍 搜尋技能包..." 
+              className={styles.searchInput}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
           <div className={styles.quickFilters}>
-            <button className={`${styles.filterPill} ${styles.active}`}>全部</button>
-            <button className={styles.filterPill}>熱門</button>
-            <button className={styles.filterPill}>思考類</button>
-            <button className={styles.filterPill}>商業類</button>
-            <button className={styles.filterPill}>工作流類</button>
-            <button className={styles.filterPill}>職涯類</button>
-            <button className={styles.filterPill}>印尼市場</button>
-            <button className={styles.filterPill}>綜合推薦</button>
+            {categories.map(cat => (
+              <button 
+                key={cat} 
+                className={`${styles.filterPill} ${selectedCategory === cat ? styles.active : ''}`}
+                onClick={() => setSelectedCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Main Content Layout */}
       <div className={`container ${styles.mainLayout}`}>
-        {/* Sidebar Filters */}
-        <aside className={styles.sidebar}>
-          <div className={styles.filterGroup}>
-            <h3 className={styles.filterTitle}>類型</h3>
-            <label className={styles.filterLabel}><input type="checkbox" /> 思考類 (4)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 商業類 (6)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 工作流類 (3)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 職涯類 (3)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 印尼市場 (2)</label>
-          </div>
-          
-          <div className={styles.filterGroup}>
-            <h3 className={styles.filterTitle}>使用情境</h3>
-            <label className={styles.filterLabel}><input type="checkbox" /> 策略規劃 (6)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 營運優化 (7)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 行銷銷售 (5)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 個人成長 (4)</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> 團隊協作 (3)</label>
-          </div>
-
-          <div className={styles.filterGroup}>
-            <h3 className={styles.filterTitle}>適用平台</h3>
-            <label className={styles.filterLabel}><input type="checkbox" /> ChatGPT</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> Claude</label>
-            <label className={styles.filterLabel}><input type="checkbox" /> Gemini</label>
-          </div>
-
-          <div className={styles.filterGroup}>
-            <h3 className={styles.filterTitle}>價格</h3>
-            <label className={styles.filterLabel}><input type="radio" name="price" defaultChecked /> 全部</label>
-            <label className={styles.filterLabel}><input type="radio" name="price" /> $0 - $9.9</label>
-            <label className={styles.filterLabel}><input type="radio" name="price" /> $10 - $19.9</label>
-            <label className={styles.filterLabel}><input type="radio" name="price" /> $20 以上</label>
-          </div>
-        </aside>
-
         {/* Product Grid */}
         <div className={styles.content}>
           <div className={styles.contentHeader}>
-            <span className={styles.resultCount}>共 {skillPacks.length} 個技能包</span>
+            <span className={styles.resultCount}>共 {filteredPacks.length} 個技能包</span>
             <div className={styles.sortContainer}>
-              <span className={styles.sortLabel}>排序：</span>
-              <select className={styles.sortSelect}>
-                <option>最熱門</option>
-                <option>最新上架</option>
-                <option>價格由低到高</option>
-                <option>最適合新手</option>
-              </select>
+               {/* 移除複雜的排序下拉，保持畫面乾淨 */}
             </div>
           </div>
           
           <div className={styles.grid}>
-            {skillPacks.map(pack => (
+            {filteredPacks.map(pack => (
               <SkillPackCard key={pack.id} pack={pack} />
-            ))}
-            {/* Adding some duplicated dummy packs to fill the grid like the mockup */}
-            {skillPacks.map(pack => (
-               <SkillPackCard key={`${pack.id}-copy`} pack={{...pack, id: `${pack.id}-copy`}} />
             ))}
           </div>
         </div>
       </div>
-
-      {/* Suggested Bundles Section */}
-      <section className={styles.bundlesSection}>
-        <div className="container">
-          <h2 className={styles.bundlesTitle}>不知道怎麼選？從這些熱門組合開始</h2>
-          <div className={styles.bundleCardsGrid}>
-            <div className={styles.bundleCardSmall}>
-              <div className={styles.bundleBadge}>熱門組合</div>
-              <div className={styles.bundleEquation}>
-                <span>🎯 問題釐清</span> + <span>🔍 根因分析</span>
-              </div>
-              <div className={styles.bundleArrow}>↓</div>
-              <div className={styles.bundleResult}>深度問題診斷</div>
-              <div className={styles.bundleDesc}>釐清問題並找到根因，提出高品質解決方案。</div>
-              <div className={styles.bundleFooter}>
-                <span className={styles.bundlePrice}>$18.8 <span className={styles.strike}>$19.8</span></span>
-                <button className={styles.btnSecondary}>查看組合詳情</button>
-              </div>
-            </div>
-            
-            <div className={styles.bundleCardSmall}>
-              <div className={styles.bundleBadge}>推薦組合</div>
-              <div className={styles.bundleEquation}>
-                <span>📈 營收增長</span> + <span>🗺️ 客戶旅程</span>
-              </div>
-              <div className={styles.bundleArrow}>↓</div>
-              <div className={styles.bundleResult}>成交漏斗優化</div>
-              <div className={styles.bundleDesc}>設計成長漏斗與優化旅程，提升轉換與營收。</div>
-              <div className={styles.bundleFooter}>
-                <span className={styles.bundlePrice}>$18.8 <span className={styles.strike}>$19.8</span></span>
-                <button className={styles.btnSecondary}>查看組合詳情</button>
-              </div>
-            </div>
-            
-            <div className={styles.bundleCardSmall}>
-              <div className={styles.bundleBadge}>新手首選</div>
-              <div className={styles.bundleEquation}>
-                <span>📄 SOP生成</span> + <span>🤖 AI導入診斷</span>
-              </div>
-              <div className={styles.bundleArrow}>↓</div>
-              <div className={styles.bundleResult}>AI 自動化流程設計</div>
-              <div className={styles.bundleDesc}>生成 SOP 並導入 AI，快速建立自動化流程。</div>
-              <div className={styles.bundleFooter}>
-                <span className={styles.bundlePrice}>$18.8 <span className={styles.strike}>$19.8</span></span>
-                <button className={styles.btnSecondary}>查看組合詳情</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

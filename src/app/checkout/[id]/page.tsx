@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { skillPacks } from '@/lib/seed';
 import styles from './page.module.css';
 import { notFound } from 'next/navigation';
+import { createCheckoutSession } from '../actions';
 
 export default async function CheckoutPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
@@ -50,8 +51,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
                 </div>
               </div>
               <div className={styles.orderQuantityRow}>
-                <div className={styles.qtyBox}>數量 <button>-</button> 1 <button>+</button></div>
-                <div className={styles.digitalNote}>⚡️ 數位商品，付款後立即開通</div>
+                <div className={styles.digitalNote}>⚡️ 數位商品，付款後立即開通。一經購買，終身存取。</div>
               </div>
             </section>
 
@@ -72,56 +72,12 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
             {/* C. 付款資訊 */}
             <section className={styles.section}>
               <h2 className={styles.sectionTitle}>C. 付款資訊</h2>
-              <form className={styles.paymentForm}>
-                <div className={styles.formRow}>
-                  <label>電子郵件</label>
-                  <input type="email" placeholder="請輸入電子郵件" />
-                </div>
-                <div className={styles.formRow}>
-                  <label>姓名</label>
-                  <input type="text" placeholder="請輸入姓名" />
-                </div>
-                <div className={styles.formRow}>
-                  <label>國家 / 地區</label>
-                  <select>
-                    <option>台灣 (Taiwan)</option>
-                    <option>香港 (Hong Kong)</option>
-                    <option>馬來西亞 (Malaysia)</option>
-                    <option>新加坡 (Singapore)</option>
-                  </select>
-                </div>
-                
-                <div className={styles.stripeWrapper}>
-                  <div className={styles.formRow}>
-                    <label>信用卡號碼</label>
-                    <div className={styles.stripeInputMock}>
-                      <span>1234 1234 1234 1234</span>
-                      <span className={styles.cardIcon}>💳</span>
-                    </div>
-                  </div>
-                  <div className={styles.formRowSplit}>
-                    <div>
-                      <label>到期日</label>
-                      <input type="text" placeholder="MM / YY" />
-                    </div>
-                    <div>
-                      <label>CVC</label>
-                      <input type="text" placeholder="123" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.formRowSplit}>
-                  <input type="text" placeholder="輸入折扣碼" className={styles.discountInput} />
-                  <button type="button" className={styles.btnApply}>套用</button>
-                </div>
-
-                <div className={styles.checkboxRow}>
-                  <input type="checkbox" id="terms" defaultChecked />
-                  <label htmlFor="terms">我同意 <a>服務條款</a> 與 <a>退款政策</a></label>
-                </div>
-
-                <button type="button" className={styles.btnPayLarge}>立即付款 ${pack.price}</button>
+              <p style={{ marginBottom: '1.5rem', color: 'var(--text-muted)' }}>
+                點擊下方按鈕將導向 Stripe 安全結帳頁面。支援各國信用卡。
+              </p>
+              <form action={createCheckoutSession} className={styles.paymentForm}>
+                <input type="hidden" name="productId" value={pack.id} />
+                <button type="submit" className={styles.btnPayLarge}>前往 Stripe 安全付款 ${pack.price}</button>
                 <div className={styles.secureNote}>🔒 安全付款 / 數位商品即時交付</div>
               </form>
             </section>
@@ -215,7 +171,10 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
                 <span>總計</span>
                 <span className={styles.totalPrice}>${pack.price} <span className={styles.usdText}>USD</span></span>
               </div>
-              <button className={styles.btnPaySmall}>立即付款</button>
+              <form action={createCheckoutSession} style={{ width: '100%' }}>
+                <input type="hidden" name="productId" value={pack.id} />
+                <button type="submit" className={styles.btnPaySmall}>立即付款</button>
+              </form>
               <div className={styles.secureNoteSmall}>🔒 安全付款 / 數位商品即時交付</div>
             </div>
 
@@ -238,7 +197,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
                   <li>✓ 比單買省 20%</li>
                   <li>✓ 可交叉組合使用</li>
                 </ul>
-                <button className={styles.btnOutlineBlock}>升級方案</button>
+                <Link href="/checkout/b-001" className={styles.btnOutlineBlock} style={{ display: 'block', textAlign: 'center' }}>升級此方案</Link>
               </div>
 
               <div className={styles.upsellCard}>
@@ -254,7 +213,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
                   <li>✓ 專家級 Prompt 與工具包</li>
                   <li>✓ 進階案例與教學</li>
                 </ul>
-                <button className={styles.btnOutlineBlock}>升級方案</button>
+                <Link href="/checkout/b-002" className={styles.btnOutlineBlock} style={{ display: 'block', textAlign: 'center' }}>升級此方案</Link>
               </div>
             </div>
 

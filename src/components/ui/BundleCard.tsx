@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Bundle } from '@/lib/seed';
 import styles from './BundleCard.module.css';
+import AddToCartButton from './AddToCartButton';
 
 interface Props {
   bundle: Bundle;
@@ -32,9 +33,7 @@ export default function BundleCard({ bundle }: Props) {
         ))}
       </ul>
       
-      <Link href={`/checkout/${bundle.id}`} className={styles.buyBtn}>
-        立即購買
-      </Link>
+      <AddToCartButton pack={{ ...bundle, icon: '📦' }} className={styles.buyBtn} />
     </div>
   );
 }

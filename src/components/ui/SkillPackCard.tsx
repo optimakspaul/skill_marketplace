@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { SkillPack } from '@/lib/seed';
 import styles from './SkillPackCard.module.css';
+import AddToCartButton from './AddToCartButton';
 
 interface Props {
   pack: SkillPack;
@@ -26,10 +27,13 @@ export default function SkillPackCard({ pack }: Props) {
       </div>
       
       <div className={styles.footer}>
-        <span className={styles.price}>${pack.price}</span>
-        <Link href={`/skill-packs/${pack.id}`} className={styles.link}>
-          查看詳情
-        </Link>
+        <div className={styles.footerTop}>
+          <span className={styles.price}>${pack.price}</span>
+          <Link href={`/skill-packs/${pack.id}`} className={styles.link}>
+            查看詳情
+          </Link>
+        </div>
+        <AddToCartButton pack={pack} className={styles.btnBuy} />
       </div>
     </div>
   );

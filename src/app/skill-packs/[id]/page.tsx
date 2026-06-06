@@ -2,15 +2,32 @@ import Link from 'next/link';
 import { skillPacks } from '@/lib/seed';
 import styles from './page.module.css';
 import { notFound } from 'next/navigation';
+import { createClient } from '@/utils/supabase/server';
+import AddToCartButton from '@/components/ui/AddToCartButton';
 
 export default async function SkillPackDetail({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
-  // If we had dynamic routing for each, we'd fetch based on params.id
-  // For the MVP preview, we'll just use the first item if the ID doesn't exactly match
   const pack = skillPacks.find(p => p.id === resolvedParams.id) || skillPacks[0];
 
   if (!pack) {
     notFound();
+  }
+
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  let hasPurchased = false
+  if (user) {
+    const { data: purchase } = await supabase
+      .from('purchases')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('product_id', pack.id)
+      .single()
+      
+    if (purchase) {
+      hasPurchased = true
+    }
   }
 
   return (
@@ -44,10 +61,18 @@ export default async function SkillPackDetail({ params }: { params: Promise<{ id
             </p>
 
             <div className={styles.actions}>
-              <Link href={`/checkout/${pack.id}`} className={styles.btnPrimary}>
-                立即購買 ${pack.price}
-              </Link>
-              <button className={styles.btnOutline}>預覽技能包</button>
+              {hasPurchased ? (
+                <Link href={`/library/${pack.id}`} className={styles.btnPrimary}>
+                  前往我的圖書館 / 取得內容
+                </Link>
+              ) : (
+                <>
+                  <AddToCartButton pack={pack} className={styles.btnPrimary} />
+                  <Link href="/cart" className={styles.btnOutline} style={{ borderColor: 'var(--primary-color)', color: 'var(--primary-color)' }}>
+                    前往購物車
+                  </Link>
+                </>
+              )}
             </div>
 
             <div className={styles.tagsContainer}>
@@ -258,19 +283,23 @@ export default async function SkillPackDetail({ params }: { params: Promise<{ id
               <li>✓ 可與其他技能包交叉使用</li>
             </ul>
 
-            <Link href={`/checkout/${pack.id}`} className={styles.btnPrimaryBlock}>
-              立即購買 $9.9
-            </Link>
+            {hasPurchased ? (
+              <Link href={`/library/${pack.id}`} className={styles.btnPrimaryBlock} style={{ background: '#10b981' }}>
+                已購買：前往我的圖書館
+              </Link>
+            ) : (
+              <AddToCartButton pack={pack} className={styles.btnPrimaryBlock} />
+            )}
 
             <div className={styles.upsellBox}>
-              <Link href="/bundles/b-001" className={styles.btnOutlineBlock}>
-                加入 5-Pack Bundle<br/>
-                <span className={styles.upsellSave}>只要 $39 (省 $10.5)</span>
+              <Link href="/bundles" className={styles.btnOutlineBlock}>
+                查看推薦組合方案<br/>
+                <span className={styles.upsellSave}>任選 2 件即享自動折扣</span>
               </Link>
             </div>
 
             <div className={styles.guarantee}>
-              30 天安心保證｜安全付款｜立即開通
+              一次付費永久使用｜安全付款｜隨買即用
             </div>
           </div>
         </aside>

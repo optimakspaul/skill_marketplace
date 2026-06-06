@@ -325,10 +325,12 @@
 .previewHeader {
   background: var(--bg-subtle);
   padding: 1rem 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.05rem;
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -340,15 +342,18 @@
   color: var(--text-muted);
   font-weight: 400;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .previewTag {
-  margin-left: auto;
-  background: var(--primary-color);
-  color: white;
+  background: #eff6ff;
+  color: var(--primary-color);
+  border: 1px solid #bfdbfe;
   font-size: 0.75rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
 .previewBody {
