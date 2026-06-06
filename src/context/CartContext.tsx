@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 interface CartContextType {
   cart: any[];
@@ -54,7 +54,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const addToCart = (pack: any) => {
+  const addToCart = useCallback((pack: any) => {
     setCart((prevCart) => {
       // Prevent duplicates
       if (prevCart.some((item) => item.id === pack.id)) {
@@ -73,22 +73,21 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         alert('您已加入 Expert Bundle 全包方案，不需重複購買其他技能包！');
         return prevCart;
       }
-
-      // If adding 5-Pack Bundle (b-001), just make sure we remove it if they later add b-002.
-      // And maybe remove the individual items that are inside b-001?
-      // Keep it simple: let them add it, but filter out duplicate individual items if needed.
       
       return [...prevCart, pack];
     });
-  };
+  }, []);
 
-  const removeFromCart = (productId: string) => {
+  const removeFromCart = useCallback((productId: string) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-  };
+  }, []);
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setCart([]);
-  };
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('optimaks_cart');
+    }
+  }, []);
 
   const rawTotalPrice = cart.reduce((sum, item) => sum + item.price, 0);
   

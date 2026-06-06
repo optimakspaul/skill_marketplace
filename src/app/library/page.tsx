@@ -20,9 +20,12 @@ export default async function LibraryPage() {
     .select('product_id, created_at')
     .eq('user_id', user.id)
 
-  const purchasedPacks = purchases 
+  const rawPurchasedPacks = purchases 
     ? purchases.map(p => skillPacks.find(sp => sp.id === p.product_id)).filter(Boolean) 
     : []
+
+  // Deduplicate packs in case there are multiple purchase records for the same product
+  const purchasedPacks = Array.from(new Map(rawPurchasedPacks.map((pack: any) => [pack.id, pack])).values())
 
   return (
     <div className={styles.page}>
