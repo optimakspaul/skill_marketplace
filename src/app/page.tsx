@@ -83,7 +83,9 @@ export default function Home() {
                 </div>
                 <div className={styles.grid4}>
                   {packsInCategory.map(pack => (
-                    <SkillPackCard key={pack.id} pack={pack} />
+                    <div key={pack.id}>
+                      <SkillPackCard pack={pack} />
+                    </div>
                   ))}
                 </div>
               </div>
