@@ -17,15 +17,16 @@ export default async function LibraryViewerPage({ params }: { params: Promise<{ 
   }
 
   // Check if user has purchased this pack
-  const { data: purchase, error } = await supabase
+  const { data: purchases, error } = await supabase
     .from('purchases')
     .select('id')
     .eq('user_id', user.id)
     .eq('product_id', packId)
-    .single()
+    .limit(1)
 
   // For testing purposes, if you want to bypass this check during dev, you can comment this out:
-  if (error || !purchase) {
+  if (error || !purchases || purchases.length === 0) {
+    console.error("Authorization check failed:", error);
     redirect('/library?error=unauthorized')
   }
 
