@@ -21,14 +21,7 @@ export async function GET() {
     description: p.description
   }))
 
-  const bundleRecords = bundles.map(b => ({
-    id: b.id,
-    name: b.badgeText + ' ' + b.resultTitle,
-    price: b.price,
-    description: b.resultDesc
-  }))
-
-  const allRecords = [...records, ...bundleRecords]
+  const allRecords = records
 
   const { data, error } = await supabaseAdmin.from('products').upsert(allRecords)
 
