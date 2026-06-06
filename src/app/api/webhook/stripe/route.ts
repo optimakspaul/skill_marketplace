@@ -4,12 +4,13 @@ import { createClient } from '@supabase/supabase-js'
 import { skillPacks, bundles } from '@/lib/seed'
 
 // Note: we use the service role key to bypass RLS when inserting from backend
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 
 export async function POST(req: Request) {
+  const supabaseAdmin = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder'
+  )
+
   const body = await req.text()
   const sig = req.headers.get('stripe-signature') as string
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
