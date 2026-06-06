@@ -71,14 +71,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem; /* Increased for bigger touch target */
+  padding: 0.5rem;
   text-decoration: none;
   cursor: pointer;
   margin-right: 0.5rem;
 }
 
 .cartIcon {
-  font-size: 2rem; /* Was 1.5rem */
+  font-size: 1.5rem;
 }
 
 .cartBadge {
@@ -87,15 +87,14 @@
   right: 0;
   background-color: #ef4444;
   color: white;
-  font-size: 0.85rem; /* Was 0.7rem */
+  font-size: 0.7rem;
   font-weight: bold;
   border-radius: 50%;
-  width: 22px; /* Was 18px */
-  height: 22px; /* Was 18px */
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(25%, -25%);
 }
 
 /* Mobile Responsiveness */
@@ -108,15 +107,15 @@
   }
   
   .logo {
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Larger logo on mobile */
   }
 
   .nav {
     order: 3;
     width: 100%;
     overflow-x: auto;
-    padding-bottom: 5px;
-    gap: 1rem;
+    padding-bottom: 10px; /* More padding for easier touch */
+    gap: 1.5rem; /* More spacing between nav items */
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     /* Hide scrollbar for a cleaner look */
@@ -128,19 +127,22 @@
   }
 
   .navLink {
-    font-size: 0.9rem;
+    font-size: 1.1rem; /* Significantly larger nav links on mobile */
+    font-weight: 600;
+    padding: 0.5rem 0; /* Add touch target padding */
   }
 
   .actions {
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .buyBtn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
   }
   
   .loginBtn {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    padding: 0.5rem;
   }
 }
