@@ -439,6 +439,7 @@
 }
 
 @media (max-width: 768px) {
+  .section { padding: 2.5rem 0; }
   .stepsFlow { flex-direction: column; align-items: center; gap: 2rem; }
   .stepDivider { display: none; }
   .heroTitle { font-size: 2.2rem; }
