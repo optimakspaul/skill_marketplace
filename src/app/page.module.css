@@ -439,11 +439,32 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 1.5rem 0 3rem; }
+  .hero { padding: 1rem 0 2rem; }
   .section { padding: 2.5rem 0; }
   .stepsFlow { flex-direction: column; align-items: center; gap: 2rem; }
   .stepDivider { display: none; }
-  .heroTitle { font-size: 2.2rem; }
+  
+  .heroTitle { 
+    font-size: 2rem; 
+    margin-bottom: 1rem;
+  }
+  .heroSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .heroActions {
+    margin-bottom: 1.5rem;
+    gap: 0.75rem;
+  }
+  .btnPrimary, .btnOutline {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  .heroTags {
+    font-size: 0.8rem;
+    gap: 0.5rem;
+  }
+  
   .ctaText h2 { font-size: 2.5rem; }
   
   .titleBreak { display: inline; }
@@ -451,7 +472,7 @@
   .desktopOnly { display: none; }
   
   .heroContent {
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
   }
 }
 
