@@ -62,13 +62,15 @@
 
 .heroContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 4rem;
 }
 
 .heroContent {
-  flex: 1;
-  max-width: 600px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .heroTitle {
@@ -93,8 +95,10 @@
 
 .heroActions {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .btnPrimary {
@@ -131,6 +135,7 @@
 
 .heroTags {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   color: var(--text-muted);

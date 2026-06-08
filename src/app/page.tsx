@@ -19,12 +19,14 @@ export default function Home() {
         <div className={`container ${styles.heroContainer}`}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              把好書與思考模型，<br />
-              <span className={styles.heroTitleHighlight}>變成可立即使用的 AI 技能包</span>
+              把看過的知識，<br />
+              <span className={styles.heroTitleHighlight}>變成真的幫得上忙的 AI</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              不是雞湯，而是把知識活學活用。適用 ChatGPT、Claude、Gemini，跨語言使用。<br />
-              給上班族、自由工作者、小老闆與想翻身的人，一套低門檻的 AI 顧問型技能工具。
+              很多知識你不是不知道，只是遇到問題時，沒有人幫你用出來。<br /><br />
+              所以我們把思考模型、實戰框架與專家方法，做成一包包可以直接使用的 AI 技能包。<br /><br />
+              就像積木一樣，單包可以解一種問題，組合起來就能變成更強的 AI 顧問系統。<br />
+              幫你釐清問題、分析局勢、找到下一步。不只是知道，而是真的用得上。
             </p>
             <div className={styles.heroActions}>
               <Link href="/skill-packs" className={styles.btnPrimary}>
