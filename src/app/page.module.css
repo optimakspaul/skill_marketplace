@@ -1,5 +1,6 @@
 .page {
-  /* No special page wrapper styles needed currently */
+  background-color: var(--bg-main);
+  overflow: hidden;
 }
 
 .section {
@@ -49,10 +50,13 @@
   text-decoration: underline;
 }
 
-/* Hero */
+/* ==========================================================================
+   1. Hero Section
+   ========================================================================== */
 .hero {
+  position: relative;
   padding: 6rem 0 4rem;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F0F6FF 100%);
+  background: linear-gradient(180deg, rgba(240, 246, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
   border-bottom: 1px solid var(--border-color);
   overflow: hidden;
 }
@@ -71,18 +75,14 @@
 .heroTitle {
   font-size: 3rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.25;
   margin-bottom: 1.5rem;
   color: var(--text-main);
   letter-spacing: -1px;
 }
 
-.heroTitleHighlight {
-  color: var(--primary-color);
-}
-
 .heroSubtitle {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -97,29 +97,37 @@
 .btnPrimary {
   background-color: var(--primary-color);
   color: white;
-  padding: 0.85rem 1.75rem;
+  padding: 0.875rem 2rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.05rem;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px 0 rgba(0, 86, 210, 0.2);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btnPrimary:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px 0 rgba(0, 86, 210, 0.3);
+  box-shadow: 0 6px 20px 0 rgba(0, 82, 255, 0.4);
 }
 
 .btnOutline {
   background-color: transparent;
   color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  padding: 0.85rem 1.75rem;
+  border: 1.5px solid var(--primary-color);
+  padding: 0.875rem 2rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.05rem;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btnOutline:hover {
@@ -130,81 +138,140 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
-.heroTags span {
-  display: flex;
+.heroTag {
+  display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
 }
 
-/* Hero Visual Placeholder */
+.tagIcon {
+  color: var(--primary-color);
+}
+
 .heroVisual {
   flex: 1;
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 2rem;
-  background: white;
-  padding: 3rem;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
-  border: 1px solid rgba(255,255,255,0.5);
-  backdrop-filter: blur(10px);
 }
 
-.mockupContainer {
+.heroGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 82, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heroGraphic {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hgTop, .hgMiddle, .hgBottom {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.mockupCard {
-  background: var(--bg-subtle);
+.hgCard, .hgCardOutline, .hgCardPurple, .hgCardGreen, .hgCardYellow {
+  background: white;
   border: 1px solid var(--border-color);
-  padding: 1.5rem;
   border-radius: 12px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.9rem;
-  width: 140px;
-  box-shadow: var(--shadow-sm);
-}
-
-.mockupIcon {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.mathSign {
-  font-size: 2rem;
-  color: var(--text-muted);
-  font-weight: 300;
-}
-
-.mockupCardLarge {
-  background: linear-gradient(135deg, #fff, var(--bg-accent));
-  border: 2px solid var(--primary-color);
-  padding: 1.5rem 3rem;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--primary-color);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   box-shadow: var(--shadow-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
 }
 
+.hgCard span, .hgCardOutline span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
 
-/* Grid Layouts */
+.hgIcon {
+  font-size: 1.5rem;
+}
+
+.hgPlus, .hgMultiply, .hgEquals {
+  color: #9CA3AF;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.hgCardOutline {
+  background: transparent;
+  border: 1px dashed #CBD5E1;
+  box-shadow: none;
+}
+
+.hgCardPurple { background: #F3E8FF; border-color: #D8B4FE; color: #7E22CE; }
+.hgCardGreen { background: #DCFCE7; border-color: #86EFAC; color: #15803D; }
+.hgCardYellow { background: #FEF3C7; border-color: #FDE047; color: #B45309; }
+
+.langBubbles {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.bubble, .bubbleMain {
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  color: var(--text-main);
+}
+.bubble span, .bubbleMain span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.bubbleMain {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Grid Layouts (Kept for 四大支線 compatibility)
+   ========================================================================== */
 .grid4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
-/* How it works Layout */
+/* ==========================================================================
+   How it works Layout
+   ========================================================================== */
 .howItWorksLayout {
   display: flex;
   align-items: center;
@@ -255,49 +322,71 @@
 }
 
 
-/* Steps */
-.stepsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
+/* ==========================================================================
+   Steps Layout
+   ========================================================================== */
+.steps {
+  padding: 5rem 0;
+  background: white;
 }
 
-.step {
+.stepsFlow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.stepItem {
+  flex: 1;
   text-align: center;
   position: relative;
+  max-width: 220px;
 }
 
 .stepNum {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   background: var(--primary-color);
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 800;
+  font-size: 0.9rem;
   margin: 0 auto 1.5rem;
 }
 
-.stepIcon {
+.stepIconBox {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .stepTitle {
   font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
 }
 
 .stepDesc {
   font-size: 0.9rem;
   color: var(--text-muted);
+  line-height: 1.5;
 }
 
-/* Bundles Grid */
+.stepDivider {
+  flex: 1;
+  height: 1px;
+  border-top: 2px dashed #CBD5E1;
+  margin-top: 14px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/* ==========================================================================
+   Bundles Grid
+   ========================================================================== */
 .bundlesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -305,276 +394,315 @@
   align-items: stretch;
 }
 
-.singlePackPromo {
-  background-color: white;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
 
-.singleTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.singleSub {
-  font-size: 1rem;
-  color: var(--text-muted);
-  font-weight: 400;
-}
-
-.singlePrice {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--primary-color);
-  margin-bottom: 2rem;
-}
-
-.singleFeatures {
-  text-align: left;
-  margin-bottom: 2rem;
-  flex-grow: 1;
-}
-
-.singleFeatures li {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-
-.btnOutlineBlock {
-  display: block;
-  width: 100%;
-  text-align: center;
-  background-color: white;
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
-  padding: 0.85rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.btnOutlineBlock:hover {
-  background: var(--background);
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.popularPromo {
-  border: 2px solid var(--primary-color);
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  position: relative;
-}
-
-.popularBadge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--primary-color);
-  color: white;
-  padding: 4px 16px;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.originalPrice {
-  font-size: 1.125rem;
-  color: var(--text-muted);
-  text-decoration: line-through;
-  margin-left: 0.5rem;
-  font-weight: 400;
-}
-
-.btnPrimaryBlock {
-  display: block;
-  text-align: center;
-  padding: 0.875rem;
-  background: var(--primary-color);
-  color: white;
-  border: 2px solid var(--primary-color);
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.btnPrimaryBlock:hover {
-  background: var(--primary-hover);
-  border-color: var(--primary-hover);
-}
-
-/* CTA */
-.sectionCta {
+/* ==========================================================================
+   Southeast Asia
+   ========================================================================== */
+.sea {
   padding: 5rem 0;
+  background: var(--bg-subtle);
 }
 
-.ctaBox {
-  background: var(--primary-color);
-  background: linear-gradient(135deg, #1e3a8a, var(--primary-color));
-  color: white;
-  border-radius: 24px;
-  padding: 4rem;
-  text-align: center;
-}
-
-.ctaTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  line-height: 1.3;
-}
-
-.btnPrimaryLarge {
-  display: inline-block;
-  background-color: #fbbf24;
-  color: #92400e;
-  padding: 1rem 2.5rem;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transition: transform 0.2s;
-}
-
-.btnPrimaryLarge:hover {
-  transform: translateY(-2px);
-  background-color: #f59e0b;
-}
-
-/* Testimonials */
-.testimonialGrid {
+.seaGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-.testimonialCard {
-  background: white;
-  border: 1px solid var(--border-color);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-}
-
-.testimonialStars {
-  color: #f59e0b;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
-}
-
-.testimonialText {
-  font-size: 1rem;
-  color: var(--text-main);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  flex-grow: 1;
-}
-
-.testimonialAuthor {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  border-top: 1px solid var(--border-color);
-  padding-top: 1.5rem;
-}
-
-.authorAvatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--bg-accent);
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.authorName {
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.authorTitle {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* FAQ */
-.faqList {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.faqItem {
+.seaCard {
   background: white;
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 1.5rem 2rem;
-  box-shadow: var(--shadow-sm);
+  padding: 2rem;
 }
 
-.faqQuestion {
+.seaIcon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.seaTitle {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.faqAnswer {
+.seaDesc {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.6;
 }
 
-/* Responsive */
+/* ==========================================================================
+   Pricing
+   ========================================================================== */
+.pricing {
+  padding: 5rem 0;
+  background: white;
+}
+
+.pricingHead {
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pCard {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+
+.pCardPopular {
+  border: 2px solid var(--primary-color);
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.pPopularBadge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary-color);
+  color: white;
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.pTag {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.pPrice {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+.pPriceWrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.pOriginalPrice {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.pCard:not(.pCardPopular) .pPrice {
+  margin-bottom: 1.5rem;
+}
+
+.pFeatures {
+  text-align: left;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+}
+
+.pFeatures li {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.pBtnPrimary {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: background 0.2s;
+  display: block;
+  text-decoration: none;
+}
+.pBtnPrimary:hover { background: var(--primary-hover); }
+
+.pBtnOutline {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: block;
+  text-decoration: none;
+}
+.pBtnOutline:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
+.testimonials {
+  padding: 5rem 0;
+  background: var(--bg-subtle);
+}
+
+.testiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.tCard {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.tIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tQuote {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.tDesc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.tAuthor {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Bottom CTA
+   ========================================================================== */
+.bottomCta {
+  padding: 5rem 0;
+  background: white;
+}
+
+.ctaWrapper {
+  background: #0A192F;
+  border-radius: 24px;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.ctaText h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btnYellow {
+  background: #FACC15;
+  color: #854D0E;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+.btnYellow:hover { transform: translateY(-2px); }
+
+.btnDarkOutline {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.btnDarkOutline:hover { background: rgba(255,255,255,0.1); }
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 @media (max-width: 1024px) {
-  .heroContainer, .howItWorksLayout {
+  .heroContainer, .howItWorksLayout, .ctaWrapper {
     flex-direction: column;
     text-align: center;
   }
   
-  .heroActions {
+  .heroActions, .heroTags, .ctaButtons {
     justify-content: center;
   }
   
-  .heroTags {
-    justify-content: center;
-  }
+  .grid4 { grid-template-columns: repeat(2, 1fr); }
+  .seaGrid, .testiGrid { grid-template-columns: repeat(2, 1fr); }
+  .pricingGrid { grid-template-columns: 1fr; max-width: 400px; }
+  .bundlesGrid { grid-template-columns: 1fr; }
   
-  .grid4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .bundlesGrid, .testimonialGrid {
-    grid-template-columns: 1fr;
-  }
+  .pCardPopular { transform: none; }
 }
 
 @media (max-width: 768px) {
-  .stepsGrid {
-    grid-template-columns: 1fr;
-  }
-  
-  .heroTitle {
-    font-size: 2.5rem;
-  }
+  .stepsFlow { flex-direction: column; align-items: center; gap: 2rem; }
+  .stepDivider { display: none; }
+  .heroTitle, .ctaText h2 { font-size: 2.5rem; }
 }
 
 @media (max-width: 640px) {
+  .seaGrid, .testiGrid { grid-template-columns: 1fr; }
+  .cRow { flex-wrap: wrap; justify-content: center; }
+  
+  /* CRITICAL: Keep horizontal scroll for 四大支線 intact! */
   .grid4 {
     display: flex;
     overflow-x: auto;

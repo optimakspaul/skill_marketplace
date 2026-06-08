@@ -18,7 +18,7 @@ export default function Home() {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
               把好書與思考模型，<br />
-              <span className={styles.heroTitleHighlight}>變成可立即使用的 AI 技能包</span>
+              變成可立即使用的 AI 技能包
             </h1>
             <p className={styles.heroSubtitle}>
               不是雞湯，而是把知識活學活用。適用 ChatGPT、Claude、Gemini，跨語言使用。<br />
@@ -33,30 +33,49 @@ export default function Home() {
               </Link>
             </div>
             <div className={styles.heroTags}>
-              <span>🌐 跨語言</span>
-              <span>🧠 顧問型技能包</span>
-              <span>🔀 可交叉組合</span>
-              <span>🤖 適用三大 AI 平台</span>
+              <span className={styles.heroTag}><span className={styles.tagIcon}>🌐</span> 跨語言</span>
+              <span className={styles.heroTag}><span className={styles.tagIcon}>🧠</span> 顧問型技能包</span>
+              <span className={styles.heroTag}><span className={styles.tagIcon}>🔀</span> 可交叉組合</span>
+              <span className={styles.heroTag}><span className={styles.tagIcon}>🤖</span> 適用三大 AI 平台</span>
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <div className={styles.mockupContainer}>
-              <div className={styles.mockupCard}>
-                <div className={styles.mockupIcon}>❓</div>
-                <div>問題釐清<br/>Skill Pack</div>
-              </div>
-              <span className={styles.mathSign}>+</span>
-              <div className={styles.mockupCard}>
-                <div className={styles.mockupIcon}>📈</div>
-                <div>營收增長<br/>Skill Pack</div>
-              </div>
-            </div>
-            <div className={styles.mockupResult}>
-              <div className={styles.mockupCardLarge}>
-                <div className={styles.mockupIcon}>⭐️</div>
-                <div>新技能</div>
-              </div>
-            </div>
+             <div className={styles.heroGlow}></div>
+             <div className={styles.heroGraphic}>
+                <div className={styles.hgTop}>
+                   <div className={styles.hgCard}>
+                      <span className={styles.hgIcon}>❓</span>
+                      <div className={styles.hgText}>問題釐清<br/><span>Skill Pack</span></div>
+                   </div>
+                   <div className={styles.hgPlus}>+</div>
+                   <div className={styles.hgCard}>
+                      <span className={styles.hgIcon}>📈</span>
+                      <div className={styles.hgText}>營收增長<br/><span>Skill Pack</span></div>
+                   </div>
+                </div>
+                <div className={styles.hgMiddle}>
+                   <div className={styles.hgCardOutline}>
+                      <span className={styles.hgIcon}>📄</span>
+                      <div className={styles.hgText}>SOP 生成<br/><span>Skill Pack</span></div>
+                   </div>
+                   <div className={styles.hgCardOutline}>
+                      <span className={styles.hgIcon}>🔍</span>
+                      <div className={styles.hgText}>AI 導入診斷<br/><span>Skill Pack</span></div>
+                   </div>
+                </div>
+                <div className={styles.hgBottom}>
+                   <div className={styles.hgCardPurple}>A 技能包</div>
+                   <div className={styles.hgMultiply}>×</div>
+                   <div className={styles.hgCardGreen}>B 技能包</div>
+                   <div className={styles.hgEquals}>=</div>
+                   <div className={styles.hgCardYellow}>⭐️ 新技能</div>
+                </div>
+                <div className={styles.langBubbles}>
+                   <div className={styles.bubble}>Bahasa Indonesia<br/><span>印尼語</span></div>
+                   <div className={styles.bubbleMain}>🌐 English<br/><span>英語</span></div>
+                   <div className={styles.bubble}>中文<br/><span>繁體中文</span></div>
+                </div>
+             </div>
           </div>
         </div>
       </section>
@@ -124,34 +143,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Steps */}
-      <section className={styles.section}>
+      {/* 4. 四步驟 */}
+      <section className={styles.steps}>
         <div className="container">
-           <h2 className={`${styles.sectionTitle} ${styles.textCenter}`}>四步驟，立即開始使用</h2>
-           <div className={styles.stepsGrid}>
-              <div className={styles.step}>
+           <h2 className={`${styles.sectionTitle} text-center`} style={{textAlign: 'center', marginBottom: '3rem'}}>四步驟，立即開始使用</h2>
+           <div className={styles.stepsFlow}>
+              <div className={styles.stepItem}>
                  <div className={styles.stepNum}>1</div>
-                 <div className={styles.stepIcon}>📦</div>
+                 <div className={styles.stepIconBox}>📦</div>
                  <h3 className={styles.stepTitle}>選擇技能包</h3>
                  <p className={styles.stepDesc}>從 60+ 技能包中，挑選最適合你的主題。</p>
               </div>
-              <div className={styles.step}>
+              <div className={styles.stepDivider}></div>
+              <div className={styles.stepItem}>
                  <div className={styles.stepNum}>2</div>
-                 <div className={styles.stepIcon}>💻</div>
-                 <h3 className={styles.stepTitle}>貼給 AI 平台</h3>
-                 <p className={styles.stepDesc}>一鍵複製 Master Prompt，貼到 ChatGPT/Claude 等。</p>
+                 <div className={styles.stepIconBox}>💻</div>
+                 <h3 className={styles.stepTitle}>貼給 ChatGPT / Claude</h3>
+                 <p className={styles.stepDesc}>一鍵複製與貼上，指派你背後的 AI 平台。</p>
               </div>
-              <div className={styles.step}>
+              <div className={styles.stepDivider}></div>
+              <div className={styles.stepItem}>
                  <div className={styles.stepNum}>3</div>
-                 <div className={styles.stepIcon}>💬</div>
+                 <div className={styles.stepIconBox}>💬</div>
                  <h3 className={styles.stepTitle}>輸入你的問題</h3>
-                 <p className={styles.stepDesc}>依據引導提供資訊，AI 會依循設定思考。</p>
+                 <p className={styles.stepDesc}>提供情境與目標，AI 會依循設定引導思考。</p>
               </div>
-              <div className={styles.step}>
+              <div className={styles.stepDivider}></div>
+              <div className={styles.stepItem}>
                  <div className={styles.stepNum}>4</div>
-                 <div className={styles.stepIcon}>🚀</div>
+                 <div className={styles.stepIconBox}>🚀</div>
                  <h3 className={styles.stepTitle}>取得分析與行動計畫</h3>
-                 <p className={styles.stepDesc}>獲得精準的分析結果與下一步建議，立即執行。</p>
+                 <p className={styles.stepDesc}>獲得精準、可落地的建議與模板，立即執行。</p>
               </div>
            </div>
         </div>
@@ -217,82 +239,133 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Social Proof / Testimonials */}
-      <section className={styles.section}>
+      {/* 5. 為什麼現在切入 */}
+      <section className={styles.sea}>
         <div className="container">
-          <h2 className={`${styles.sectionTitle} ${styles.textCenter}`}>超過 5,000+ 創業家與工作者正在使用</h2>
-          <p className={`${styles.sectionSubtitle} ${styles.textCenter} ${styles.mbExtra}`}>
-            他們透過 Optimaks 省下了無數個在螢幕前發呆的時間
-          </p>
-          <div className={styles.testimonialGrid}>
-            <div className={styles.testimonialCard}>
-              <div className={styles.testimonialStars}>★★★★★</div>
-              <p className={styles.testimonialText}>「以前寫廣告文案要憋一個下午，現在用『廣告文案怎麼寫？』技能包，10分鐘就能產出三種角度的吸睛文案，ROAS 提升了 20%！」</p>
-              <div className={styles.testimonialAuthor}>
-                <div className={styles.authorAvatar}>S</div>
-                <div>
-                  <div className={styles.authorName}>Sarah L.</div>
-                  <div className={styles.authorTitle}>獨立電商負責人</div>
-                </div>
+           <h2 className={styles.sectionTitle} style={{marginBottom: '3rem'}}>為什麼現在切入印尼與東南亞？</h2>
+           <div className={styles.seaGrid}>
+              <div className={styles.seaCard}>
+                 <div className={styles.seaIcon}>🌐</div>
+                 <h3 className={styles.seaTitle}>AI 普及底氣高</h3>
+                 <p className={styles.seaDesc}>印尼在嘴砲與個人日常中 AI 使用率領先全球，多數用戶已把它視為工作標配。</p>
               </div>
-            </div>
-            <div className={styles.testimonialCard}>
-              <div className={styles.testimonialStars}>★★★★★</div>
-              <p className={styles.testimonialText}>「身為產品經理，最怕需求定義不清。使用『問題釐清』技能包後，我把老闆模糊的指令直接丟進去，AI 幫我反向生出了完整的規格提問清單，太神了。」</p>
-              <div className={styles.testimonialAuthor}>
-                <div className={styles.authorAvatar}>K</div>
-                <div>
-                  <div className={styles.authorName}>Kevin T.</div>
-                  <div className={styles.authorTitle}>資深產品經理</div>
-                </div>
+              <div className={styles.seaCard}>
+                 <div className={styles.seaIcon}>👥</div>
+                 <h3 className={styles.seaTitle}>知識落差大</h3>
+                 <p className={styles.seaDesc}>專業知識與實務方法論落差，優質技能包能快速創造價值與競爭優勢。</p>
               </div>
-            </div>
-            <div className={styles.testimonialCard}>
-              <div className={styles.testimonialStars}>★★★★★</div>
-              <p className={styles.testimonialText}>「以前覺得自己買了好多商業書但都不會用。Optimaks 直接把書中的框架變成 Prompt，只要填空就能得出分析結果，根本是知識變現的神器。」</p>
-              <div className={styles.testimonialAuthor}>
-                <div className={styles.authorAvatar}>M</div>
-                <div>
-                  <div className={styles.authorName}>Michael C.</div>
-                  <div className={styles.authorTitle}>個人品牌創作者</div>
-                </div>
+              <div className={styles.seaCard}>
+                 <div className={styles.seaIcon}>📈</div>
+                 <h3 className={styles.seaTitle}>想提升收入與工作效率的人多</h3>
+                 <p className={styles.seaDesc}>年輕人口紅利與數位化加速，對於提升收入與效率的需求強烈且持續成長。</p>
               </div>
-            </div>
-          </div>
+              <div className={styles.seaCard}>
+                 <div className={styles.seaIcon}>💬</div>
+                 <h3 className={styles.seaTitle}>跨語言技能包更有優勢</h3>
+                 <p className={styles.seaDesc}>支援 Bahasa Indonesia / English / 中文，幫助你跨語言思考、輸出與影響更多人。</p>
+              </div>
+           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className={`${styles.section} ${styles.bgSubtle}`}>
-        <div className="container">
-          <h2 className={`${styles.sectionTitle} ${styles.textCenter} ${styles.mbExtra}`}>常見問題 (FAQ)</h2>
-          <div className={styles.faqList}>
-            <div className={styles.faqItem}>
-              <h4 className={styles.faqQuestion}>Q: 這些技能包可以在哪些 AI 平台上使用？</h4>
-              <p className={styles.faqAnswer}>A: 我們的技能包經過優化，在 ChatGPT、Claude、Gemini 等主流 AI 平台上都能完美運行。您只需要複製貼上即可。</p>
+      {/* 6. Pricing */}
+      <section className={styles.pricing}>
+         <div className="container">
+            <h2 className={styles.pricingHead}>Founding pricing for early adopters</h2>
+            <div className={styles.pricingGrid}>
+               {/* Card 1 */}
+               <div className={styles.pCard}>
+                  <div className={styles.pTag}>Single Pack</div>
+                  <h3 className={styles.pTitle}>單一技能包</h3>
+                  <div className={styles.pPrice}>$9.9</div>
+                  <ul className={styles.pFeatures}>
+                     <li>✓ 任選 1 個技能包</li>
+                     <li>✓ 終身更新</li>
+                     <li>✓ 適用三大 AI 平台</li>
+                  </ul>
+                  <Link href="/skill-packs" className={styles.pBtnOutline}>立即購買</Link>
+               </div>
+               {/* Card 2 */}
+               <div className={`${styles.pCard} ${styles.pCardPopular}`}>
+                  <div className={styles.pPopularBadge}>最受歡迎</div>
+                  <div className={styles.pTag}>5-Pack Bundle</div>
+                  <h3 className={styles.pTitle}>5 個技能包組合</h3>
+                  <div className={styles.pPriceWrapper}>
+                     <span className={styles.pPrice}>$39</span>
+                     <span className={styles.pOriginalPrice}>$49.5</span>
+                  </div>
+                  <ul className={styles.pFeatures}>
+                     <li>✓ 任選 5 個技能包</li>
+                     <li>✓ 終身更新</li>
+                     <li>✓ 適用三大 AI 平台</li>
+                  </ul>
+                  <Link href="/bundles" className={styles.pBtnPrimary}>立即購買</Link>
+               </div>
+               {/* Card 3 */}
+               <div className={styles.pCard}>
+                  <div className={styles.pTag}>Thinking OS / Expert Bundle</div>
+                  <h3 className={styles.pTitle}>完整思考系統 + 專家方案</h3>
+                  <div className={styles.pPriceWrapper}>
+                     <span className={styles.pPrice}>$49</span>
+                     <span className={styles.pOriginalPrice}>$79</span>
+                  </div>
+                  <ul className={styles.pFeatures}>
+                     <li>✓ 所有核心技能包 (含新增)</li>
+                     <li>✓ 專家工作流體驗</li>
+                     <li>✓ 專屬社群與優先支援</li>
+                  </ul>
+                  <Link href="/bundles" className={styles.pBtnOutline}>立即購買</Link>
+               </div>
             </div>
-            <div className={styles.faqItem}>
-              <h4 className={styles.faqQuestion}>Q: 購買後可以永久使用嗎？</h4>
-              <p className={styles.faqAnswer}>A: 是的，一次購買，永久存取。我們未來若對該技能包進行升級（例如加入新框架或優化 Prompt），您也能免費獲得更新。</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h4 className={styles.faqQuestion}>Q: 我不懂寫程式或下 Prompt 可以用嗎？</h4>
-              <p className={styles.faqAnswer}>A: 完全可以！這正是我們開發 Optimaks 的初衷。您只需要進入「我的圖書館」，使用我們的「智能填空器」，填寫您目前的狀況，系統就會自動幫您組合成完美的 Prompt。</p>
-            </div>
-          </div>
-        </div>
+         </div>
       </section>
-      
-      {/* Testimonials (Placeholder CTA) */}
-      <section className={styles.sectionCta}>
-        <div className="container">
-          <div className={styles.ctaBox}>
-            <h2 className={styles.ctaTitle}>先從一個技能包開始，<br/>讓 AI 幫你把知識變成行動</h2>
-            <Link href="/skill-packs" className={styles.btnPrimaryLarge}>
-              立即探索技能包
-            </Link>
-          </div>
-        </div>
+
+      {/* 7. Testimonials */}
+      <section className={styles.testimonials}>
+         <div className="container">
+            <h2 className={styles.sectionTitle} style={{marginBottom: '3rem'}}>來自用戶的真實回饋</h2>
+            <div className={styles.testiGrid}>
+               <div className={styles.tCard}>
+                  <div className={styles.tIcon}>📖</div>
+                  <h3 className={styles.tQuote}>“不只是會讀，而是會用”</h3>
+                  <p className={styles.tDesc}>技能包把知識變成可執行的提示詞與流程，立即上手。</p>
+                  <div className={styles.tAuthor}>— 產品經理, 雅加達</div>
+               </div>
+               <div className={styles.tCard}>
+                  <div className={styles.tIcon}>🤖</div>
+                  <h3 className={styles.tQuote}>“把 AI 變成低成本顧問”</h3>
+                  <p className={styles.tDesc}>每天用技能包解決工作問題，省下時間與預算。</p>
+                  <div className={styles.tAuthor}>— 小型電商老闆, 泗水</div>
+               </div>
+               <div className={styles.tCard}>
+                  <div className={styles.tIcon}>🌐</div>
+                  <h3 className={styles.tQuote}>“用自己的語言思考與輸出”</h3>
+                  <p className={styles.tDesc}>支援印尼語、英文與中文，溝通更自然，影響更大。</p>
+                  <div className={styles.tAuthor}>— 自由工作者, 馬來西亞</div>
+               </div>
+               <div className={styles.tCard}>
+                  <div className={styles.tIcon}>🚀</div>
+                  <h3 className={styles.tQuote}>“從技能包到工作流系統，一路升級”</h3>
+                  <p className={styles.tDesc}>從單點工具延伸成完整系統，工作更專業也更有價值。</p>
+                  <div className={styles.tAuthor}>— 顧問, 香港</div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 8. Bottom CTA */}
+      <section className={styles.bottomCta}>
+         <div className="container">
+            <div className={styles.ctaWrapper}>
+               <div className={styles.ctaText}>
+                  <h2>先從一個技能包開始，<br/>讓 AI 幫你把知識變成行動</h2>
+               </div>
+               <div className={styles.ctaButtons}>
+                  <Link href="/skill-packs" className={styles.btnYellow}>立即購買 &gt;</Link>
+                  <Link href="/bundles" className={styles.btnDarkOutline}>預覽技能包</Link>
+               </div>
+            </div>
+         </div>
       </section>
     </div>
   );
