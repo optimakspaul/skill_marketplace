@@ -1,0 +1,177 @@
+.showcaseWrapper {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.levelIndicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.indicator {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.indicator:hover {
+  background: var(--bg-subtle);
+}
+
+.indicatorActive {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+.indicatorActive:hover {
+  background: var(--primary-color);
+}
+
+.showcaseContent {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.levelView {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.levelViewActive {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.equation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.equationPart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mathSign {
+  font-size: 1.5rem;
+  color: #9CA3AF;
+  font-weight: 300;
+}
+
+.elementCard {
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.expertCard {
+  background: linear-gradient(135deg, #F3E8FF, #E9D5FF);
+  border-color: #D8B4FE;
+  color: #6B21A8;
+}
+
+.elIcon {
+  font-size: 1.25rem;
+}
+
+.resultArrow {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  animation: bounceDown 2s infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+.resultCard {
+  background: linear-gradient(135deg, #fff, var(--bg-accent));
+  border: 2px solid var(--primary-color);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  box-shadow: 0 10px 25px -5px rgba(0, 86, 210, 0.2);
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .showcaseWrapper {
+    padding: 1.5rem;
+    min-height: 340px;
+  }
+  
+  .levelIndicators {
+    gap: 0.25rem;
+  }
+  
+  .indicator {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .elementCard {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .elIcon {
+    font-size: 1.1rem;
+  }
+  
+  .resultCard {
+    font-size: 1.1rem;
+    padding: 0.85rem 1.5rem;
+  }
+}

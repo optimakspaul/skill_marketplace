@@ -6,6 +6,7 @@ import BundleCard from '@/components/ui/BundleCard';
 import FormulaBundleCard from '@/components/ui/FormulaBundleCard';
 import AddToCartButton from '@/components/ui/AddToCartButton';
 import FAQAccordion from '@/components/ui/FAQAccordion';
+import HeroShowcase from '@/components/ui/HeroShowcase';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -41,23 +42,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <div className={styles.mockupContainer}>
-              <div className={styles.mockupCard}>
-                <div className={styles.mockupIcon}>❓</div>
-                <div>問題釐清<br/>Skill Pack</div>
-              </div>
-              <span className={styles.mathSign}>+</span>
-              <div className={styles.mockupCard}>
-                <div className={styles.mockupIcon}>📈</div>
-                <div>營收增長<br/>Skill Pack</div>
-              </div>
-            </div>
-            <div className={styles.mockupResult}>
-              <div className={styles.mockupCardLarge}>
-                <div className={styles.mockupIcon}>⭐️</div>
-                <div>新技能</div>
-              </div>
-            </div>
+             <HeroShowcase />
           </div>
         </div>
       </section>
