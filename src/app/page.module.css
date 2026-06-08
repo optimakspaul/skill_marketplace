@@ -522,11 +522,10 @@
 }
 
 @media (max-width: 640px) {
-  .testiGrid3 { grid-template-columns: 1fr; }
   .cRow { flex-wrap: wrap; justify-content: center; }
   
-  /* CRITICAL: Keep horizontal scroll for 四大支線 intact! */
-  .grid4 {
+  /* Horizontal scroll for Skill Packs & Testimonials on Mobile */
+  .grid4, .testiGrid3 {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -538,11 +537,11 @@
     padding-right: 1rem;
   }
   
-  .grid4::-webkit-scrollbar {
+  .grid4::-webkit-scrollbar, .testiGrid3::-webkit-scrollbar {
     display: none;
   }
 
-  .grid4 > div {
+  .grid4 > div, .testiGrid3 > div {
     flex: 0 0 85%;
     scroll-snap-align: center;
   }

@@ -5,6 +5,7 @@ import SkillPackCard from '@/components/ui/SkillPackCard';
 import BundleCard from '@/components/ui/BundleCard';
 import FormulaBundleCard from '@/components/ui/FormulaBundleCard';
 import AddToCartButton from '@/components/ui/AddToCartButton';
+import FAQAccordion from '@/components/ui/FAQAccordion';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -259,6 +260,39 @@ export default function Home() {
                      </div>
                   </div>
                </div>
+               <div className={styles.tCardReal}>
+                  <div className={styles.tStars}>★★★★★</div>
+                  <p className={styles.tDescReal}>「本來覺得 AI 寫的社群貼文都很生硬，自從用了『爆品行銷煉金術』組合，我的文案轉換率直接翻倍，客人還以為我請了專業行銷團隊！」</p>
+                  <div className={styles.tAuthorBox}>
+                     <div className={styles.tAvatar}>A</div>
+                     <div className={styles.tAuthorInfo}>
+                        <div className={styles.tName}>Alice W.</div>
+                        <div className={styles.tRole}>自媒體經營者</div>
+                     </div>
+                  </div>
+               </div>
+               <div className={styles.tCardReal}>
+                  <div className={styles.tStars}>★★★★★</div>
+                  <p className={styles.tDescReal}>「身為小公司老闆，每天被雜事追著跑。『流程標準化』技能包讓我把許多重複性工作直接交給助理加 AI 處理，每天多出 2 小時思考策略。」</p>
+                  <div className={styles.tAuthorBox}>
+                     <div className={styles.tAvatar}>B</div>
+                     <div className={styles.tAuthorInfo}>
+                        <div className={styles.tName}>Brian H.</div>
+                        <div className={styles.tRole}>中小企業創辦人</div>
+                     </div>
+                  </div>
+               </div>
+               <div className={styles.tCardReal}>
+                  <div className={styles.tStars}>★★★★★</div>
+                  <p className={styles.tDescReal}>「從來沒想過 AI 可以幫我『抓漏』。用『根因分析』技能包對付客戶流失問題，找到了我一直沒注意到的體驗盲點，非常實用。」</p>
+                  <div className={styles.tAuthorBox}>
+                     <div className={styles.tAvatar}>C</div>
+                     <div className={styles.tAuthorInfo}>
+                        <div className={styles.tName}>Cathy L.</div>
+                        <div className={styles.tRole}>客戶成功經理</div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </section>
@@ -267,20 +301,7 @@ export default function Home() {
       <section className={`${styles.section} ${styles.bgSubtle}`}>
          <div className="container" style={{maxWidth: '800px'}}>
             <h2 className={styles.sectionTitle} style={{textAlign: 'center', marginBottom: '3rem'}}>常見問題 (FAQ)</h2>
-            <div className={styles.faqList}>
-               <div className={styles.faqItem}>
-                  <h3 className={styles.faqQ}>Q: 這些技能包可以在哪些 AI 平台上使用？</h3>
-                  <p className={styles.faqA}>A: 我們的技能包經過優化，在 ChatGPT、Claude、Gemini 等主流 AI 平台上都能完美運行。您只需要複製貼上即可。</p>
-               </div>
-               <div className={styles.faqItem}>
-                  <h3 className={styles.faqQ}>Q: 購買後可以永久使用嗎？</h3>
-                  <p className={styles.faqA}>A: 是的，一次購買，永久存取。我們未來若對該技能包進行升級（例如加入新框架或優化 Prompt），您也能免費獲得更新。</p>
-               </div>
-               <div className={styles.faqItem}>
-                  <h3 className={styles.faqQ}>Q: 我不懂寫程式或下 Prompt 可以用嗎？</h3>
-                  <p className={styles.faqA}>A: 完全可以！這正是我們開發 Optimaks 的初衷。您只需要進入「我的圖書館」，使用我們的「智能填空器」，填寫您目前的狀況，系統就會自動幫您組合成完美的 Prompt。</p>
-               </div>
-            </div>
+            <FAQAccordion />
          </div>
       </section>
 
