@@ -28,7 +28,6 @@ export default async function Header() {
           ) : (
             <>
               <Link href="/login" className={styles.loginBtn}>登入</Link>
-              <Link href="/skill-packs" className={styles.buyBtn}>立即購買</Link>
             </>
           )}
         </div>

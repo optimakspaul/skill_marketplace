@@ -51,20 +51,7 @@
   color: var(--primary-hover);
 }
 
-.buyBtn {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.6rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-}
 
-.buyBtn:hover {
-  background-color: var(--primary-hover);
-  box-shadow: var(--shadow-blue);
-  transform: translateY(-1px);
-}
 
 .cartIconWrapper {
   position: relative;
@@ -137,10 +124,7 @@
     gap: 1rem;
   }
 
-  .buyBtn {
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-  }
+
   
   .loginBtn {
     font-size: 1rem;
