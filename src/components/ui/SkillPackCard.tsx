@@ -17,11 +17,7 @@ export default function SkillPackCard({ pack }: Props) {
         <span className={styles.icon}>{pack.icon}</span>
       </div>
       
-      <h3 className={styles.title}>
-        {pack.title}
-        <br />
-        <span>Skill Pack</span>
-      </h3>
+      <h3 className={styles.title}>{pack.title}</h3>
       <p className={styles.description}>{pack.description}</p>
       
       <div className={styles.tags}>
