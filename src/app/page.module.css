@@ -465,7 +465,27 @@
     gap: 0.5rem;
   }
   
-  .ctaText h2 { font-size: 2.5rem; }
+  .ctaWrapper {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .ctaText h2 { 
+    font-size: 1.6rem; 
+    line-height: 1.4;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btnYellow, .btnDarkOutline {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
   
   .titleBreak { display: inline; }
   .titleBreak::before { content: "\A"; white-space: pre; }
