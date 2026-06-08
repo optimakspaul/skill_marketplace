@@ -18,7 +18,7 @@ export default function Home() {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
               把好書與思考模型，<br />
-              變成可立即使用的 AI 技能包
+              <span className={styles.heroTitleHighlight}>變成可立即使用的 AI 技能包</span>
             </h1>
             <p className={styles.heroSubtitle}>
               不是雞湯，而是把知識活學活用。適用 ChatGPT、Claude、Gemini，跨語言使用。<br />
@@ -33,49 +33,30 @@ export default function Home() {
               </Link>
             </div>
             <div className={styles.heroTags}>
-              <span className={styles.heroTag}><span className={styles.tagIcon}>🌐</span> 跨語言</span>
-              <span className={styles.heroTag}><span className={styles.tagIcon}>🧠</span> 顧問型技能包</span>
-              <span className={styles.heroTag}><span className={styles.tagIcon}>🔀</span> 可交叉組合</span>
-              <span className={styles.heroTag}><span className={styles.tagIcon}>🤖</span> 適用三大 AI 平台</span>
+              <span>🌐 跨語言</span>
+              <span>🧠 顧問型技能包</span>
+              <span>🔀 可交叉組合</span>
+              <span>🤖 適用三大 AI 平台</span>
             </div>
           </div>
           <div className={styles.heroVisual}>
-             <div className={styles.heroGlow}></div>
-             <div className={styles.heroGraphic}>
-                <div className={styles.hgTop}>
-                   <div className={styles.hgCard}>
-                      <span className={styles.hgIcon}>❓</span>
-                      <div className={styles.hgText}>問題釐清<br/><span>Skill Pack</span></div>
-                   </div>
-                   <div className={styles.hgPlus}>+</div>
-                   <div className={styles.hgCard}>
-                      <span className={styles.hgIcon}>📈</span>
-                      <div className={styles.hgText}>營收增長<br/><span>Skill Pack</span></div>
-                   </div>
-                </div>
-                <div className={styles.hgMiddle}>
-                   <div className={styles.hgCardOutline}>
-                      <span className={styles.hgIcon}>📄</span>
-                      <div className={styles.hgText}>SOP 生成<br/><span>Skill Pack</span></div>
-                   </div>
-                   <div className={styles.hgCardOutline}>
-                      <span className={styles.hgIcon}>🔍</span>
-                      <div className={styles.hgText}>AI 導入診斷<br/><span>Skill Pack</span></div>
-                   </div>
-                </div>
-                <div className={styles.hgBottom}>
-                   <div className={styles.hgCardPurple}>A 技能包</div>
-                   <div className={styles.hgMultiply}>×</div>
-                   <div className={styles.hgCardGreen}>B 技能包</div>
-                   <div className={styles.hgEquals}>=</div>
-                   <div className={styles.hgCardYellow}>⭐️ 新技能</div>
-                </div>
-                <div className={styles.langBubbles}>
-                   <div className={styles.bubble}>Bahasa Indonesia<br/><span>印尼語</span></div>
-                   <div className={styles.bubbleMain}>🌐 English<br/><span>英語</span></div>
-                   <div className={styles.bubble}>中文<br/><span>繁體中文</span></div>
-                </div>
-             </div>
+            <div className={styles.mockupContainer}>
+              <div className={styles.mockupCard}>
+                <div className={styles.mockupIcon}>❓</div>
+                <div>問題釐清<br/>Skill Pack</div>
+              </div>
+              <span className={styles.mathSign}>+</span>
+              <div className={styles.mockupCard}>
+                <div className={styles.mockupIcon}>📈</div>
+                <div>營收增長<br/>Skill Pack</div>
+              </div>
+            </div>
+            <div className={styles.mockupResult}>
+              <div className={styles.mockupCardLarge}>
+                <div className={styles.mockupIcon}>⭐️</div>
+                <div>新技能</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
