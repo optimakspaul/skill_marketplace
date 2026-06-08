@@ -120,6 +120,7 @@
     -webkit-overflow-scrolling: touch;
     /* Hide scrollbar for a cleaner look */
     scrollbar-width: none; 
+    justify-content: center; /* Center the navigation links on mobile */
   }
   
   .nav::-webkit-scrollbar {
