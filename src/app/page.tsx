@@ -52,15 +52,19 @@ export default function Home() {
       {/* Four Branches Section */}
       <section className={styles.section}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 className={styles.sectionTitle}>四大專業支線，解決各種商業難題</h2>
-            <p className={styles.sectionSubtitle}>從問題解決到財經研究，我們為不同的使用情境打造了專屬的解決方案</p>
+          <div style={{ textAlign: 'center', margin: '0 auto 3rem', maxWidth: '800px' }}>
+            <h2 className={styles.sectionTitle}>五大專業支線，解決各種商業難題</h2>
+            <p className={styles.sectionSubtitle}>從問題解決到專家智囊團，我們為不同的使用情境打造了專屬的解決方案</p>
           </div>
 
-          {['問題解決', '電商專用', '小老闆專用', '財經專用'].map((category, index) => {
+          {['問題解決', '營收增長', '流程標準化', '財經研究', '專家智囊團'].map((category, index) => {
             const packsInCategory = skillPacks.filter(p => p.category === category);
+            
+            // Skip rendering the category if there are no packs yet
+            if (packsInCategory.length === 0) return null;
+
             return (
-              <div key={category} style={{ marginBottom: index === 3 ? 0 : '4rem' }}>
+              <div key={category} style={{ marginBottom: index === 4 ? 0 : '4rem' }}>
                 <div className={styles.sectionHeader}>
                   <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <span style={{ color: 'var(--primary-color)' }}>{index + 1}.</span> {category}支線
@@ -82,35 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className={`${styles.section} ${styles.bgSubtle}`}>
-        <div className="container">
-          <div className={styles.howItWorksLayout}>
-            <div className={styles.howItWorksText}>
-              <h2 className={styles.sectionTitle}>像積木一樣堆疊，<br/>變成你的 AI 顧問系統</h2>
-              <p className={styles.sectionSubtitle}>
-                自由組合技能包，創造更強大的複合能力。
-              </p>
-            </div>
-            <div className={styles.howItWorksVisual}>
-               <div className={styles.combinerRow}>
-                 <span className={styles.cItem}>問題釐清</span>
-                 <span className={styles.cMath}>×</span>
-                 <span className={styles.cItem}>根因分析</span>
-                 <span className={styles.cArrow}>→</span>
-                 <span className={styles.cResult}>深度問題診斷</span>
-               </div>
-               <div className={styles.combinerRow}>
-                 <span className={styles.cItem}>營收增長</span>
-                 <span className={styles.cMath}>×</span>
-                 <span className={styles.cItem}>客戶旅程</span>
-                 <span className={styles.cArrow}>→</span>
-                 <span className={styles.cResult}>成交漏斗優化</span>
-               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* 4. 四步驟 */}
       <section className={styles.steps}>

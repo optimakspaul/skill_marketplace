@@ -90,7 +90,7 @@ const rawSkillPacks: SkillPack[] = [
     tags: ["跨語言", "電商必備"],
     features: ["賣點萃取", "獨特價值主張", "適用三大 AI 平台"],
     isHot: true,
-    category: "電商專用",
+    category: "營收增長",
     sections: [
       {
         id: "intro",
@@ -114,7 +114,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "📝",
     tags: ["跨語言", "社群行銷"],
     features: ["吸睛標題庫", "多平台文案生成", "適用三大 AI 平台"],
-    category: "電商專用",
+    category: "營收增長",
   },
   {
     id: "sp-07",
@@ -124,7 +124,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "📉",
     tags: ["跨語言", "漏斗優化"],
     features: ["瀏覽動線分析", "抗拒點消除", "適用三大 AI 平台"],
-    category: "電商專用",
+    category: "營收增長",
   },
   {
     id: "sp-08",
@@ -134,7 +134,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "🎁",
     tags: ["跨語言", "活動企劃"],
     features: ["促銷玩法設計", "利潤試算框架", "適用三大 AI 平台"],
-    category: "電商專用",
+    category: "營收增長",
   },
 
   // 3. 小老闆專用支線
@@ -147,7 +147,7 @@ const rawSkillPacks: SkillPack[] = [
     tags: ["跨語言", "商業模式"],
     features: ["商業體檢表", "增長槓桿分析", "適用三大 AI 平台"],
     isHot: true,
-    category: "小老闆專用",
+    category: "流程標準化",
   },
   {
     id: "sp-10",
@@ -157,7 +157,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "💬",
     tags: ["跨語言", "客戶關係"],
     features: ["常見問題罐頭回覆", "客訴處理框架", "適用三大 AI 平台"],
-    category: "小老闆專用",
+    category: "流程標準化",
   },
   {
     id: "sp-11",
@@ -167,7 +167,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "📄",
     tags: ["跨語言", "營運優化"],
     features: ["SOP 提取技術", "標準化檢核表", "適用三大 AI 平台"],
-    category: "小老闆專用",
+    category: "流程標準化",
   },
   {
     id: "sp-12",
@@ -177,7 +177,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "⏳",
     tags: ["跨語言", "時間管理"],
     features: ["工作審查框架", "AI 自動化評估", "適用三大 AI 平台"],
-    category: "小老闆專用",
+    category: "流程標準化",
   },
 
   // 4. 財經專用支線
@@ -189,7 +189,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "💰",
     tags: ["跨語言", "財報分析"],
     features: ["財報三表解讀", "關鍵指標提取", "適用三大 AI 平台"],
-    category: "財經專用",
+    category: "財經研究",
   },
   {
     id: "sp-14",
@@ -200,7 +200,7 @@ const rawSkillPacks: SkillPack[] = [
     tags: ["跨語言", "產業研究"],
     features: ["商業模式畫布", "競品分析框架", "適用三大 AI 平台"],
     isHot: true,
-    category: "財經專用",
+    category: "財經研究",
   },
   {
     id: "sp-15",
@@ -210,7 +210,7 @@ const rawSkillPacks: SkillPack[] = [
     icon: "💡",
     tags: ["跨語言", "內容創作"],
     features: ["觀點萃取", "腳本結構化", "適用三大 AI 平台"],
-    category: "財經專用",
+    category: "財經研究",
   },
   {
     id: "sp-16",
@@ -220,7 +220,30 @@ const rawSkillPacks: SkillPack[] = [
     icon: "📰",
     tags: ["跨語言", "總經分析"],
     features: ["事件影響分析", "趨勢推演框架", "適用三大 AI 平台"],
-    category: "財經專用",
+    category: "財經研究",
+  },
+  {
+    id: "sp-expert-steve",
+    title: "Steve Jobs 產品體驗診斷包",
+    description: "極簡設計、故事化表達與產品極致體驗的決策思考。",
+    price: 19.9,
+    icon: "🧠",
+    tags: ["跨語言", "專家思維", "高階包"],
+    features: ["核心痛點打磨", "故事化行銷腳本", "體驗極簡化檢核"],
+    isNew: true,
+    isHot: true,
+    category: "專家智囊團",
+  },
+  {
+    id: "sp-expert-musk",
+    title: "Elon Musk 第一性原理拆解包",
+    description: "破除常規盲點，用第一性原理拆解並重構商業模式。",
+    price: 19.9,
+    icon: "🚀",
+    tags: ["跨語言", "專家思維", "高階包"],
+    features: ["第一性原理拆解", "成本結構重構", "10倍改善思維"],
+    isNew: true,
+    category: "專家智囊團",
   }
 ];
 
