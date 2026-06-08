@@ -449,10 +449,7 @@
   .desktopOnly { display: none; }
   
   .heroContent {
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-bottom: 10vh;
   }
 }
 
