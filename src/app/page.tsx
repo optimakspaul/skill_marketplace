@@ -19,13 +19,13 @@ export default function Home() {
         <div className={`container ${styles.heroContainer}`}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              把看過的知識，<br />
+              把看過的知識，<span className={styles.titleBreak}></span>
               <span className={styles.heroTitleHighlight}>變成真的幫得上忙的 AI</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              很多知識你不是不知道，只是遇到問題時，沒有人幫你用出來。<br /><br />
-              所以我們把思考模型、實戰框架與專家方法，做成一包包可以直接使用的 AI 技能包。<br /><br />
-              就像積木一樣，單包可以解一種問題，組合起來就能變成更強的 AI 顧問系統。<br />
+              很多知識你不是不知道，只是遇到問題時，沒有人幫你用出來。<br className={styles.desktopOnly} /><br className={styles.desktopOnly} />
+              所以我們把思考模型、實戰框架與專家方法，做成一包包可以直接使用的 AI 技能包。<br className={styles.desktopOnly} /><br className={styles.desktopOnly} />
+              就像積木一樣，單包可以解一種問題，組合起來就能變成更強的 AI 顧問系統。<br className={styles.desktopOnly} />
               幫你釐清問題、分析局勢、找到下一步。不只是知道，而是真的用得上。
             </p>
             <div className={styles.heroActions}>
