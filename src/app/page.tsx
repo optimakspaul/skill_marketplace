@@ -220,115 +220,65 @@ export default function Home() {
         </div>
       </section>
       
-      {/* 5. 為什麼現在切入 */}
-      <section className={styles.sea}>
-        <div className="container">
-           <h2 className={styles.sectionTitle} style={{marginBottom: '3rem'}}>為什麼現在切入印尼與東南亞？</h2>
-           <div className={styles.seaGrid}>
-              <div className={styles.seaCard}>
-                 <div className={styles.seaIcon}>🌐</div>
-                 <h3 className={styles.seaTitle}>AI 普及底氣高</h3>
-                 <p className={styles.seaDesc}>印尼在嘴砲與個人日常中 AI 使用率領先全球，多數用戶已把它視為工作標配。</p>
-              </div>
-              <div className={styles.seaCard}>
-                 <div className={styles.seaIcon}>👥</div>
-                 <h3 className={styles.seaTitle}>知識落差大</h3>
-                 <p className={styles.seaDesc}>專業知識與實務方法論落差，優質技能包能快速創造價值與競爭優勢。</p>
-              </div>
-              <div className={styles.seaCard}>
-                 <div className={styles.seaIcon}>📈</div>
-                 <h3 className={styles.seaTitle}>想提升收入與工作效率的人多</h3>
-                 <p className={styles.seaDesc}>年輕人口紅利與數位化加速，對於提升收入與效率的需求強烈且持續成長。</p>
-              </div>
-              <div className={styles.seaCard}>
-                 <div className={styles.seaIcon}>💬</div>
-                 <h3 className={styles.seaTitle}>跨語言技能包更有優勢</h3>
-                 <p className={styles.seaDesc}>支援 Bahasa Indonesia / English / 中文，幫助你跨語言思考、輸出與影響更多人。</p>
-              </div>
-           </div>
-        </div>
-      </section>
-
-      {/* 6. Pricing */}
-      <section className={styles.pricing}>
+      {/* 7. Testimonials */}
+      <section className={styles.testimonials}>
          <div className="container">
-            <h2 className={styles.pricingHead}>Founding pricing for early adopters</h2>
-            <div className={styles.pricingGrid}>
-               {/* Card 1 */}
-               <div className={styles.pCard}>
-                  <div className={styles.pTag}>Single Pack</div>
-                  <h3 className={styles.pTitle}>單一技能包</h3>
-                  <div className={styles.pPrice}>$9.9</div>
-                  <ul className={styles.pFeatures}>
-                     <li>✓ 任選 1 個技能包</li>
-                     <li>✓ 終身更新</li>
-                     <li>✓ 適用三大 AI 平台</li>
-                  </ul>
-                  <Link href="/skill-packs" className={styles.pBtnOutline}>立即購買</Link>
-               </div>
-               {/* Card 2 */}
-               <div className={`${styles.pCard} ${styles.pCardPopular}`}>
-                  <div className={styles.pPopularBadge}>最受歡迎</div>
-                  <div className={styles.pTag}>5-Pack Bundle</div>
-                  <h3 className={styles.pTitle}>5 個技能包組合</h3>
-                  <div className={styles.pPriceWrapper}>
-                     <span className={styles.pPrice}>$39</span>
-                     <span className={styles.pOriginalPrice}>$49.5</span>
+            <h2 className={styles.sectionTitle} style={{textAlign: 'center', marginBottom: '0.5rem'}}>超過 5,000+ 創業家與工作者正在使用</h2>
+            <p className={styles.sectionSubtitle} style={{textAlign: 'center', marginBottom: '3rem'}}>他們透過 Optimaks 省下了無數個在螢幕前發呆的時間</p>
+            <div className={styles.testiGrid3}>
+               <div className={styles.tCardReal}>
+                  <div className={styles.tStars}>★★★★★</div>
+                  <p className={styles.tDescReal}>「以前寫廣告文案要憋一個下午，現在用『廣告文案怎麼寫？』技能包，10分鐘就能產出三種角度的吸睛文案，ROAS 提升了 20%！」</p>
+                  <div className={styles.tAuthorBox}>
+                     <div className={styles.tAvatar}>S</div>
+                     <div className={styles.tAuthorInfo}>
+                        <div className={styles.tName}>Sarah L.</div>
+                        <div className={styles.tRole}>獨立電商負責人</div>
+                     </div>
                   </div>
-                  <ul className={styles.pFeatures}>
-                     <li>✓ 任選 5 個技能包</li>
-                     <li>✓ 終身更新</li>
-                     <li>✓ 適用三大 AI 平台</li>
-                  </ul>
-                  <Link href="/bundles" className={styles.pBtnPrimary}>立即購買</Link>
                </div>
-               {/* Card 3 */}
-               <div className={styles.pCard}>
-                  <div className={styles.pTag}>Thinking OS / Expert Bundle</div>
-                  <h3 className={styles.pTitle}>完整思考系統 + 專家方案</h3>
-                  <div className={styles.pPriceWrapper}>
-                     <span className={styles.pPrice}>$49</span>
-                     <span className={styles.pOriginalPrice}>$79</span>
+               <div className={styles.tCardReal}>
+                  <div className={styles.tStars}>★★★★★</div>
+                  <p className={styles.tDescReal}>「身為產品經理，最怕需求定義不清。使用『問題釐清』技能包後，我把老闆模糊的指令直接丟進去，AI 幫我反向生出了完整的規格提問清單，太神了。」</p>
+                  <div className={styles.tAuthorBox}>
+                     <div className={styles.tAvatar}>K</div>
+                     <div className={styles.tAuthorInfo}>
+                        <div className={styles.tName}>Kevin T.</div>
+                        <div className={styles.tRole}>資深產品經理</div>
+                     </div>
                   </div>
-                  <ul className={styles.pFeatures}>
-                     <li>✓ 所有核心技能包 (含新增)</li>
-                     <li>✓ 專家工作流體驗</li>
-                     <li>✓ 專屬社群與優先支援</li>
-                  </ul>
-                  <Link href="/bundles" className={styles.pBtnOutline}>立即購買</Link>
+               </div>
+               <div className={styles.tCardReal}>
+                  <div className={styles.tStars}>★★★★★</div>
+                  <p className={styles.tDescReal}>「以前覺得自己買了好多商業書但都不會用。Optimaks 直接把書中的框架變成 Prompt，只要填空就能得出分析結果，根本是知識變現的神器。」</p>
+                  <div className={styles.tAuthorBox}>
+                     <div className={styles.tAvatar}>M</div>
+                     <div className={styles.tAuthorInfo}>
+                        <div className={styles.tName}>Michael C.</div>
+                        <div className={styles.tRole}>個人品牌創作者</div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
       </section>
 
-      {/* 7. Testimonials */}
-      <section className={styles.testimonials}>
-         <div className="container">
-            <h2 className={styles.sectionTitle} style={{marginBottom: '3rem'}}>來自用戶的真實回饋</h2>
-            <div className={styles.testiGrid}>
-               <div className={styles.tCard}>
-                  <div className={styles.tIcon}>📖</div>
-                  <h3 className={styles.tQuote}>“不只是會讀，而是會用”</h3>
-                  <p className={styles.tDesc}>技能包把知識變成可執行的提示詞與流程，立即上手。</p>
-                  <div className={styles.tAuthor}>— 產品經理, 雅加達</div>
+      {/* FAQ Section */}
+      <section className={`${styles.section} ${styles.bgSubtle}`}>
+         <div className="container" style={{maxWidth: '800px'}}>
+            <h2 className={styles.sectionTitle} style={{textAlign: 'center', marginBottom: '3rem'}}>常見問題 (FAQ)</h2>
+            <div className={styles.faqList}>
+               <div className={styles.faqItem}>
+                  <h3 className={styles.faqQ}>Q: 這些技能包可以在哪些 AI 平台上使用？</h3>
+                  <p className={styles.faqA}>A: 我們的技能包經過優化，在 ChatGPT、Claude、Gemini 等主流 AI 平台上都能完美運行。您只需要複製貼上即可。</p>
                </div>
-               <div className={styles.tCard}>
-                  <div className={styles.tIcon}>🤖</div>
-                  <h3 className={styles.tQuote}>“把 AI 變成低成本顧問”</h3>
-                  <p className={styles.tDesc}>每天用技能包解決工作問題，省下時間與預算。</p>
-                  <div className={styles.tAuthor}>— 小型電商老闆, 泗水</div>
+               <div className={styles.faqItem}>
+                  <h3 className={styles.faqQ}>Q: 購買後可以永久使用嗎？</h3>
+                  <p className={styles.faqA}>A: 是的，一次購買，永久存取。我們未來若對該技能包進行升級（例如加入新框架或優化 Prompt），您也能免費獲得更新。</p>
                </div>
-               <div className={styles.tCard}>
-                  <div className={styles.tIcon}>🌐</div>
-                  <h3 className={styles.tQuote}>“用自己的語言思考與輸出”</h3>
-                  <p className={styles.tDesc}>支援印尼語、英文與中文，溝通更自然，影響更大。</p>
-                  <div className={styles.tAuthor}>— 自由工作者, 馬來西亞</div>
-               </div>
-               <div className={styles.tCard}>
-                  <div className={styles.tIcon}>🚀</div>
-                  <h3 className={styles.tQuote}>“從技能包到工作流系統，一路升級”</h3>
-                  <p className={styles.tDesc}>從單點工具延伸成完整系統，工作更專業也更有價值。</p>
-                  <div className={styles.tAuthor}>— 顧問, 香港</div>
+               <div className={styles.faqItem}>
+                  <h3 className={styles.faqQ}>Q: 我不懂寫程式或下 Prompt 可以用嗎？</h3>
+                  <p className={styles.faqA}>A: 完全可以！這正是我們開發 Optimaks 的初衷。您只需要進入「我的圖書館」，使用我們的「智能填空器」，填寫您目前的狀況，系統就會自動幫您組合成完美的 Prompt。</p>
                </div>
             </div>
          </div>
@@ -342,8 +292,8 @@ export default function Home() {
                   <h2>先從一個技能包開始，<br/>讓 AI 幫你把知識變成行動</h2>
                </div>
                <div className={styles.ctaButtons}>
-                  <Link href="/skill-packs" className={styles.btnYellow}>立即購買 &gt;</Link>
-                  <Link href="/bundles" className={styles.btnDarkOutline}>預覽技能包</Link>
+                  <Link href="/skill-packs" className={styles.btnDarkOutline}>預覽技能包</Link>
+                  <Link href="/bundles" className={styles.btnYellow}>組合方案 &gt;</Link>
                </div>
             </div>
          </div>

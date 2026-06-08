@@ -335,224 +335,111 @@
 
 
 /* ==========================================================================
-   Southeast Asia
-   ========================================================================== */
-.sea {
-  padding: 5rem 0;
-  background: var(--bg-subtle);
-}
-
-.seaGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.seaCard {
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2rem;
-}
-
-.seaIcon {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-}
-
-.seaTitle {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-
-.seaDesc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   Pricing
-   ========================================================================== */
-.pricing {
-  padding: 5rem 0;
-  background: white;
-}
-
-.pricingHead {
-  text-align: center;
-  color: var(--primary-color);
-  font-weight: 600;
-  margin-bottom: 3rem;
-}
-
-.pricingGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.pCard {
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  text-align: center;
-}
-
-.pCardPopular {
-  border: 2px solid var(--primary-color);
-  box-shadow: var(--shadow-lg);
-  transform: scale(1.05);
-  z-index: 10;
-}
-
-.pPopularBadge {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--primary-color);
-  color: white;
-  padding: 4px 16px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.pTag {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.pTitle {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  color: var(--text-main);
-}
-
-.pPrice {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--primary-color);
-}
-.pPriceWrapper {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-.pOriginalPrice {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  text-decoration: line-through;
-}
-
-.pCard:not(.pCardPopular) .pPrice {
-  margin-bottom: 1.5rem;
-}
-
-.pFeatures {
-  text-align: left;
-  margin-bottom: 2.5rem;
-  flex-grow: 1;
-}
-
-.pFeatures li {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: var(--text-main);
-}
-
-.pBtnPrimary {
-  background: var(--primary-color);
-  color: white;
-  padding: 0.875rem;
-  border-radius: 8px;
-  font-weight: 700;
-  transition: background 0.2s;
-  display: block;
-  text-decoration: none;
-}
-.pBtnPrimary:hover { background: var(--primary-hover); }
-
-.pBtnOutline {
-  background: transparent;
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
-  padding: 0.875rem;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.2s;
-  display: block;
-  text-decoration: none;
-}
-.pBtnOutline:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-}
-
-/* ==========================================================================
-   Testimonials
+   Testimonials (Real)
    ========================================================================== */
 .testimonials {
   padding: 5rem 0;
-  background: var(--bg-subtle);
+  background: white;
 }
 
-.testiGrid {
+.testiGrid3 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
-.tCard {
+.tCardReal {
   background: white;
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.tStars {
+  color: #F59E0B;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.tDescReal {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.tAuthorBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.tAvatar {
+  width: 40px;
+  height: 40px;
+  background: #EFF6FF;
+  color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.tAuthorInfo {
   display: flex;
   flex-direction: column;
 }
 
-.tIcon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.tName {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text-main);
 }
 
-.tQuote {
-  font-size: 1.1rem;
+.tRole {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.faqItem {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.faqQ {
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-main);
   margin-bottom: 1rem;
-  line-height: 1.4;
 }
 
-.tDesc {
-  font-size: 0.95rem;
+.faqA {
+  font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.6;
-  flex-grow: 1;
-  margin-bottom: 1.5rem;
-}
-
-.tAuthor {
-  font-size: 0.85rem;
-  color: #9CA3AF;
-  font-weight: 600;
 }
 
 /* ==========================================================================
@@ -624,11 +511,8 @@
   }
   
   .grid4 { grid-template-columns: repeat(2, 1fr); }
-  .seaGrid, .testiGrid { grid-template-columns: repeat(2, 1fr); }
-  .pricingGrid { grid-template-columns: 1fr; max-width: 400px; }
+  .testiGrid3 { grid-template-columns: repeat(2, 1fr); }
   .bundlesGrid { grid-template-columns: 1fr; }
-  
-  .pCardPopular { transform: none; }
 }
 
 @media (max-width: 768px) {
@@ -638,7 +522,7 @@
 }
 
 @media (max-width: 640px) {
-  .seaGrid, .testiGrid { grid-template-columns: 1fr; }
+  .testiGrid3 { grid-template-columns: 1fr; }
   .cRow { flex-wrap: wrap; justify-content: center; }
   
   /* CRITICAL: Keep horizontal scroll for 四大支線 intact! */
