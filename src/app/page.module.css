@@ -161,18 +161,29 @@
    Grid Layouts
    ========================================================================== */
 .grid4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* Add some padding so shadow doesn't clip */
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
-/* ==========================================================================
-   Grid Layouts (Kept for 四大支線 compatibility)
-   ========================================================================== */
-.grid4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+.grid4::-webkit-scrollbar {
+  display: none;
+}
+
+.grid4 > div {
+  flex: 0 0 calc(25% - 1.125rem);
+  min-width: 260px;
+  scroll-snap-align: center;
 }
 
 
@@ -425,7 +436,6 @@
     justify-content: center;
   }
   
-  .grid4 { grid-template-columns: repeat(2, 1fr); }
   .testiGrid3 { grid-template-columns: repeat(2, 1fr); }
   .bundlesGrid { grid-template-columns: 1fr; }
 }
@@ -439,8 +449,8 @@
 @media (max-width: 640px) {
   .cRow { flex-wrap: wrap; justify-content: center; }
   
-  /* Horizontal scroll for Skill Packs & Testimonials on Mobile */
-  .grid4, .testiGrid3 {
+  /* Horizontal scroll for Testimonials on Mobile */
+  .testiGrid3 {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -452,11 +462,11 @@
     padding-right: 1rem;
   }
   
-  .grid4::-webkit-scrollbar, .testiGrid3::-webkit-scrollbar {
+  .testiGrid3::-webkit-scrollbar {
     display: none;
   }
 
-  .grid4 > div, .testiGrid3 > div {
+  .testiGrid3 > div {
     flex: 0 0 85%;
     scroll-snap-align: center;
   }
